@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gente que Suma | Asistencia y Dignidad</title>      <!-- Google Analytics 4 - Gente que Suma -->     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGQ2WCMVFQ"></script>     <script>       window.dataLayer = window.dataLayer || [];       function gtag(){dataLayer.push(arguments);}       gtag('js', new Date());       gtag('config', 'G-RGQ2WCMVFQ');     </script>
+    <title>Gente que Suma | Asistencia y Dignidad</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGQ2WCMVFQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RGQ2WCMVFQ');
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -11,12 +21,11 @@
     
     <style>
         :root {
-            /* Paleta de Alta Legibilidad */
-            --color-fondo: #F0F4F8; /* Azul muy pálido para evitar deslumbramiento */
-            --color-primario: #003366; /* Azul marino profundo (Máxima confianza y contraste) */
-            --color-secundario: #EBF5FF; /* Azul cielo suave para bloques */
-            --color-acento: #E67E22; /* Naranja cálido (Alta visibilidad para botones) */
-            --color-texto: #1A1A1A; /* Negro casi puro para lectura perfecta */
+            --color-fondo: #F0F4F8;
+            --color-primario: #003366;
+            --color-secundario: #EBF5FF;
+            --color-acento: #E67E22;
+            --color-texto: #1A1A1A;
         }
 
         body { 
@@ -29,7 +38,7 @@
         .font-elegant { font-family: 'Playfair Display', serif; }
         .font-cursive { font-family: 'Dancing Script', cursive; }
 
-        /* Transiciones entre "páginas" */
+        /* Transiciones entre secciones */
         .page-section {
             display: none;
             opacity: 0;
@@ -64,7 +73,6 @@
             font-size: 1.1rem;
         }
 
-        /* Hero Background con overlay azul */
         .hero-bg {
             background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 31, 63, 0.85)), 
                         url('https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/portada.jpg');
@@ -72,7 +80,6 @@
             background-position: center;
         }
 
-        /* Lectura Optimizada: Texto más grande y con más peso */
         p { font-size: 1.4rem; line-height: 1.8; color: #1A1A1A; font-weight: 400; }
         h1 { font-size: 3.5rem; line-height: 1.2; }
         h2 { font-size: 2.8rem; line-height: 1.3; color: var(--color-primario); }
@@ -81,7 +88,6 @@
             box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
         }
 
-        /* Menú móvil */
         #mobile-menu {
             transition: transform 0.3s ease-in-out;
             transform: translateX(100%);
@@ -112,7 +118,6 @@
                 </div>
             </a>
 
-            <!-- Menú Desktop con botones más grandes -->
             <div class="hidden lg:flex items-center gap-10">
                 <span onclick="navigateTo('inicio')" class="nav-link active-link text-stone-700 font-bold uppercase tracking-wider">Inicio</span>
                 <span onclick="navigateTo('servicios')" class="nav-link text-stone-700 font-bold uppercase tracking-wider">Servicios</span>
@@ -129,7 +134,7 @@
         </div>
     </nav>
 
-    <!-- Menú Móvil Lateral -->
+    <!-- Menú Móvil -->
     <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white flex flex-col p-10 lg:hidden">
         <div class="flex justify-end mb-10">
             <button onclick="toggleMenu()" class="text-[#003366]">
@@ -174,7 +179,7 @@
                         <p class="text-stone-600">Entendemos sus necesidades y respetamos sus tiempos. Nuestro objetivo es que cada día sea más sencillo y alegre para usted y su familia.</p>
                     </div>
                     <div class="md:w-1/2">
-                        <img src="https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/citas.png" alt="Acompañamiento cálido" class="rounded-[4rem] shadow-2xl border-8 border-[#EBF5FF]">
+                        <img src="https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/citas.png" alt="Acompañamiento" class="rounded-[4rem] shadow-2xl border-8 border-[#EBF5FF]">
                     </div>
                 </div>
             </div>
@@ -188,9 +193,7 @@
                     <h2 class="font-elegant font-bold">¿Cómo podemos sumarle hoy?</h2>
                     <div class="w-32 h-2 bg-[#E67E22] mx-auto mt-6 rounded-full"></div>
                 </div>
-
                 <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Cada tarjeta tiene borde inferior grueso para guía visual -->
                     <div class="card-service p-12 rounded-[4rem] shadow-lg">
                         <div class="text-6xl mb-8">📍</div>
                         <h3 class="text-3xl font-black mb-6 text-[#003366]">Citas y Trámites</h3>
@@ -212,16 +215,6 @@
                         <p class="font-bold text-stone-700">Estamos para escucharle, caminar un poco o disfrutar de una charla amena. Valoramos la compañía humana real.</p>
                     </div>
                 </div>
-
-                <!-- Banner con contraste invertido -->
-                <div class="mt-24 bg-[#003366] text-white p-14 rounded-[5rem] flex flex-col md:flex-row items-center gap-12 shadow-2xl">
-                    <span class="text-8xl">🏠</span>
-                    <div class="flex-1 text-center md:text-left">
-                        <h3 class="text-4xl font-black mb-4">Seguridad en su Hogar</h3>
-                        <p class="text-blue-100 text-2xl font-bold">Realizamos pequeñas reparaciones para evitar riesgos en casa.</p>
-                    </div>
-                    <button onclick="navigateTo('contacto')" class="bg-[#E67E22] text-white px-12 py-5 rounded-full font-black text-xl uppercase tracking-widest hover:bg-[#D35400] transition">Consultar</button>
-                </div>
             </div>
         </section>
 
@@ -232,7 +225,6 @@
                     <h2 class="font-elegant font-bold">Su seguridad es lo primero</h2>
                     <p class="text-2xl text-stone-500 mt-4">Transparencia total para usted y su familia.</p>
                 </div>
-                
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="space-y-10">
                         <div class="flex items-center gap-8 p-8 bg-[#EBF5FF] rounded-[3rem] border-l-8 border-[#003366]">
@@ -259,18 +251,17 @@
 
         <!-- PÁGINA: PROCESO -->
         <section id="page-proceso" class="page-section py-20 bg-[#F0F4F8]">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="font-elegant font-bold text-center mb-20">¿Cómo trabajamos?</h2>
-                
-                <div class="relative space-y-12">
-                    <div class="flex items-center gap-10 bg-white p-12 rounded-[4rem] shadow-md border-2 border-blue-50">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="font-elegant font-bold mb-20">¿Cómo trabajamos?</h2>
+                <div class="relative space-y-12 text-left">
+                    <div class="flex items-center gap-10 bg-white p-12 rounded-[4rem] shadow-md">
                         <div class="bg-[#003366] text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl font-black flex-shrink-0">1</div>
                         <div>
                             <h4 class="text-3xl font-black mb-4 text-[#003366]">Presentación</h4>
                             <p class="text-xl font-bold text-stone-600">Llegamos a su puerta, nos identificamos y confirmamos qué actividad realizaremos hoy.</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-10 bg-white p-12 rounded-[4rem] shadow-md border-2 border-blue-50">
+                    <div class="flex items-center gap-10 bg-white p-12 rounded-[4rem] shadow-md">
                         <div class="bg-[#003366] text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl font-black flex-shrink-0">2</div>
                         <div>
                             <h4 class="text-3xl font-black mb-4 text-[#003366]">Acompañamiento</h4>
@@ -281,7 +272,7 @@
                         <div class="bg-[#E67E22] text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl font-black flex-shrink-0">3</div>
                         <div>
                             <h4 class="text-3xl font-black mb-4 text-[#E67E22]">Cierre Seguro</h4>
-                            <p class="text-xl font-bold opacity-90">Entregamos su comprobante detallando el tiempo y los apoyos. Todo bajo control y transparencia.</p>
+                            <p class="text-xl font-bold opacity-90">Entregamos su comprobante detallando el tiempo y los apoyos. Todo bajo control.</p>
                         </div>
                     </div>
                 </div>
@@ -293,8 +284,8 @@
             <div class="max-w-5xl mx-auto px-6">
                 <div class="bg-white p-12 md:p-24 rounded-[5rem] shadow-2xl border-4 border-[#EBF5FF]">
                     <div class="text-center mb-16">
-                        <h2 class="font-elegant font-bold text-[#003366] mb-6">Estamos para servirle</h2>
-                        <p class="text-2xl font-bold text-stone-500 mb-8">Llámenos o déjenos sus datos. No hay compromiso.</p>
+                        <h2 class="font-elegant font-bold text-[#003366] mb-6 text-center w-full">Estamos para servirle</h2>
+                        <p class="text-2xl font-bold text-stone-500 mb-8">Llámenos o déjenos sus datos.</p>
                         <a id="btn-call-gqs" href="tel:4421260133" class="inline-block bg-[#EBF5FF] px-12 py-6 rounded-full text-4xl font-black text-[#003366] border-2 border-[#003366] hover:bg-[#003366] hover:text-white transition">442-126-0133</a>
                     </div>
 
@@ -302,76 +293,74 @@
                         <div class="grid md:grid-cols-2 gap-12">
                             <div>
                                 <label class="text-xl font-black text-[#003366] uppercase tracking-widest block mb-4">Su Nombre</label>
-                                <input type="text" id="nombre" required placeholder="Escriba su nombre aquí" class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold transition-all">
+                                <input type="text" id="nombre" required placeholder="Nombre completo" class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold">
                             </div>
                             <div>
                                 <label class="text-xl font-black text-[#003366] uppercase tracking-widest block mb-4">Su Teléfono</label>
-                                <input type="tel" id="telefono" required placeholder="Número a 10 dígitos" class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold transition-all">
+                                <input type="tel" id="telefono" required placeholder="10 dígitos" class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold">
                             </div>
                         </div>
                         <div>
-                            <label class="text-xl font-black text-[#003366] uppercase tracking-widest block mb-4">¿En qué podemos apoyarle?</label>
-                            <textarea id="mensaje" rows="3" required placeholder="Cuéntenos brevemente qué necesita..." class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold transition-all"></textarea>
+                            <label class="text-xl font-black text-[#003366] uppercase tracking-widest block mb-4">¿Qué necesita?</label>
+                            <textarea id="mensaje" rows="3" required placeholder="Cuéntenos cómo podemos ayudarle..." class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-[#E67E22] text-white py-10 rounded-[3rem] text-3xl font-black uppercase tracking-widest shadow-2xl hover:bg-[#D35400] transition-all">
                             Enviar Solicitud
                         </button>
-                        <p id="feedback" class="hidden text-center text-[#003366] text-xl font-black italic animate-bounce">Abriendo su correo para enviar...</p>
+                        <p id="feedback" class="hidden text-center text-[#003366] text-xl font-black italic animate-bounce mt-4">Abriendo su correo...</p>
                     </form>
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
     <footer class="bg-[#001F3F] text-blue-200 py-24 px-6 border-t-8 border-[#E67E22]">
         <div class="max-w-7xl mx-auto text-center">
-            <div class="flex flex-col items-center mb-12">
-                <img src="https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/logookclear.png" class="h-20 brightness-0 invert opacity-60 mb-8">
-                <h3 class="text-5xl text-white font-cursive mb-6">Gente que Suma</h3>
-                <p class="max-xl text-xl font-bold italic opacity-80 leading-relaxed">"Asistencia civil, acompañamiento humano y seguridad para el adulto mayor en Querétaro."</p>
-            </div>
-            
-            <div class="text-xs font-bold uppercase tracking-[0.3em] border-t border-blue-900 pt-10 text-blue-400">
+            <img src="https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/logookclear.png" class="h-20 brightness-0 invert opacity-60 mb-8 mx-auto">
+            <h3 class="text-5xl text-white font-cursive mb-6">Gente que Suma</h3>
+            <p class="max-w-xl text-xl font-bold italic opacity-80 leading-relaxed mx-auto">Asistencia civil y acompañamiento humano en Querétaro.</p>
+            <div class="mt-10 border-t border-blue-900 pt-10 text-blue-400 text-sm font-bold uppercase tracking-[0.3em]">
                 <p>© 2026 Gente que Suma. Respeto y Dignidad.</p>
-                <div class="mt-6 flex justify-center gap-10 text-sm">
-                    <span>Querétaro, México</span>
-                    <span>•</span>
-                    <span>Versión 4.0.0</span>
-                </div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Flotante Gigante -->
-    <a href="https://api.whatsapp.com/send?phone=4421260133" target="_blank" class="fixed bottom-10 right-10 bg-[#25D366] text-white p-6 md:px-10 md:py-6 rounded-full shadow-2xl z-[150] hover:scale-110 transition-transform flex items-center gap-4 border-4 border-white">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.973L0 16l4.104-1.076a7.864 7.864 0 0 0 3.891 1.018h.003c4.367 0 7.926-3.559 7.93-7.93a7.876 7.876 0 0 0-2.326-5.668z"/>
-        </svg>
+    <!-- WhatsApp Flotante -->
+    <a href="https://api.whatsapp.com/send?phone=4421260133" target="_blank" class="fixed bottom-10 right-10 bg-[#25D366] text-white p-6 rounded-full shadow-2xl z-[150] hover:scale-110 transition-transform flex items-center gap-4 border-4 border-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.973L0 16l4.104-1.076a7.864 7.864 0 0 0 3.891 1.018h.003c4.367 0 7.926-3.559 7.93-7.93a7.876 7.876 0 0 0-2.326-5.668z"/></svg>
         <span class="hidden md:inline text-2xl font-black uppercase tracking-wider">WhatsApp</span>
     </a>
 
     <script>
-        // LÓGICA DE NAVEGACIÓN
+        // --- 1. LÓGICA DE NAVEGACIÓN ---
         function navigateTo(sectionId) {
+            // Ocultar todas las secciones
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(sec => sec.classList.remove('active'));
 
+            // Quitar clase activa de los links
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => link.classList.remove('active-link'));
 
+            // Mostrar la seleccionada
             const activeSection = document.getElementById('page-' + sectionId);
             if(activeSection) {
                 activeSection.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
+            // Marcar link activo
             navLinks.forEach(link => {
-                if(link.getAttribute('onclick') && link.getAttribute('onclick').includes(sectionId)) {
+                if(link.getAttribute('onclick') && link.getAttribute('onclick').includes("'" + sectionId + "'")) {
                     link.classList.add('active-link');
                 }
             });
+
+            // Tracking de sección
+            if(typeof gtag !== 'undefined') {
+                gtag('event', 'vista_seccion', { 'event_label': sectionId });
+            }
         }
 
         function toggleMenu() {
@@ -379,7 +368,7 @@
             menu.classList.toggle('open');
         }
 
-        // Envío de Formulario
+        // --- 2. FORMULARIO ---
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const feedback = document.getElementById('feedback');
@@ -391,13 +380,45 @@
             
             const email = "caosdivergente@gmail.com";
             const subject = "INTERÉS WEB URGENTE - Gente que Suma";
-            const bodyText = `Hola, mi nombre es ${nombre}.%0D%0AMi teléfono es: ${tel}%0D%0ANecesito el siguiente apoyo: ${msg}`;
+            const bodyText = `Hola, mi nombre es ${nombre}. Mi teléfono es: ${tel}. Necesito el siguiente apoyo: ${msg}`;
+
+            // Evento GA
+            if(typeof gtag !== 'undefined') {
+                gtag('event', 'envio_formulario', { 'event_category': 'Conversion' });
+            }
 
             setTimeout(() => {
-                window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${bodyText}`;     }, 1000);   });    // ====================================================   // GOOGLE ANALYTICS 4 - GENTE QUE SUMA - 9 MEDIDORES   // ====================================================    // 1. VISTAS DE SECCIÓN ESPECÍFICA   const originalNavigateTo = navigateTo;   function navigateTo(sectionId) {     originalNavigateTo(sectionId);     if(typeof gtag !== 'undefined') {       gtag('event', 'vista_seccion', {         event_category: 'Navegacion',         event_label: 'seccion_' + sectionId       });     }   }    // 2. BOUNCE RATE: Menos de 10 segundos = rebote   var gqsStartTime = Date.now();   setTimeout(function() {     if(typeof gtag !== 'undefined') {       gtag('event', 'engaged_10s', {         event_category: 'Engagement',         event_label: 'Usuario activo mas de 10 segundos'       });     }   }, 10000);   window.addEventListener('beforeunload', function() {     var dur = Math.round((Date.now() - gqsStartTime) / 1000);     if(typeof gtag !== 'undefined') {       gtag('event', 'session_duracion', {         event_category: 'Engagement',         event_label: dur >= 10 ? 'engaged_mas_10s' : 'rebote_menos_10s',         value: dur       });     }   });    // 3. SCROLL DEPTH: 25%, 50%, 75%, 100%   var scrollMarks = { 25: false, 50: false, 75: false, 100: false };   window.addEventListener('scroll', function() {     var scrollTop = window.scrollY || document.documentElement.scrollTop;     var docHeight = document.documentElement.scrollHeight - window.innerHeight;     if(docHeight <= 0) return;     var pct = Math.round((scrollTop / docHeight) * 100);     [25, 50, 75, 100].forEach(function(mark) {       if(pct >= mark && !scrollMarks[mark]) {         scrollMarks[mark] = true;         if(typeof gtag !== 'undefined') {           gtag('event', 'scroll_depth', {             event_category: 'Scroll',             event_label: mark + '% de la pagina',             value: mark           });         }       }     });   });    // 4. FUENTE DE TRÁFICO (UTM desde Facebook u otras fuentes)   (function() {     var p = new URLSearchParams(window.location.search);     var src = p.get('utm_source') || 'directo';     var med = p.get('utm_medium') || 'ninguno';     var cam = p.get('utm_campaign') || 'sin_campania';     if(typeof gtag !== 'undefined') {       gtag('event', 'fuente_trafico', {         event_category: 'Trafico',         event_label: src + ' / ' + med,         utm_source: src,         utm_medium: med,         utm_campaign: cam       });     }   })();    // 5. USUARIOS RECURRENTES   (function() {     var visitas = parseInt(localStorage.getItem('gqs_visitas') || '0') + 1;     localStorage.setItem('gqs_visitas', visitas);     if(typeof gtag !== 'undefined') {       gtag('event', visitas > 1 ? 'usuario_recurrente' : 'usuario_nuevo', {         event_category: 'Usuario',         event_label: 'Visita numero ' + visitas,         value: visitas       });     }   })();    // 6. GEOLOCALIZACIÓN   (function() {     if(navigator.geolocation) {       navigator.geolocation.getCurrentPosition(function(pos) {         if(typeof gtag !== 'undefined') {           gtag('event', 'geolocalizacion_visitante', {             event_category: 'Geografia',             event_label: 'lat:' + pos.coords.latitude.toFixed(2) + '_lng:' + pos.coords.longitude.toFixed(2)           });         }       });     }   })();    document.addEventListener('DOMContentLoaded', function() {      // 7. CONVERSIÓN WhatsApp     var btnWA = document.getElementById('btn-whatsapp-gqs');     if(btnWA) {       btnWA.addEventListener('click', function() {         if(typeof gtag !== 'undefined') {           gtag('event', 'conversion_whatsapp', {             event_category: 'Conversion',             event_label: 'WhatsApp Directo - Gente que Suma',             value: 1           });         }       });     }      // 8. CLICK-TO-CALL     var btnCall = document.getElementById('btn-call-gqs');     if(btnCall) {       btnCall.addEventListener('click', function() {         if(typeof gtag !== 'undefined') {           gtag('event', 'click_to_call', {             event_category: 'Contacto',             event_label: 'Clic en Tel 442-126-0133',             value: 1           });         }       });     }      // 9. ENVIO DE FORMULARIO como conversión     var form = document.getElementById('contactForm');     if(form) {       form.addEventListener('submit', function() {         if(typeof gtag !== 'undefined') {           gtag('event', 'envio_formulario', {             event_category: 'Conversion',             event_label: 'Formulario de Contacto enviado',             value: 1           });         }       });     }    });
+                window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
             }, 1000);
         });
-    </script>
 
+        // --- 3. GOOGLE ANALYTICS Y MÉTRICAS ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Engagement 10s
+            setTimeout(function() {
+                if(typeof gtag !== 'undefined') gtag('event', 'engaged_10s');
+            }, 10000);
+
+            // Scroll Depth
+            let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+            window.addEventListener('scroll', function() {
+                let pct = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+                [25, 50, 75, 100].forEach(mark => {
+                    if(pct >= mark && !scrollMarks[mark]) {
+                        scrollMarks[mark] = true;
+                        if(typeof gtag !== 'undefined') gtag('event', 'scroll_depth', { 'value': mark });
+                    }
+                });
+            });
+
+            // WhatsApp y Llamada
+            document.getElementById('btn-whatsapp-gqs')?.addEventListener('click', () => {
+                if(typeof gtag !== 'undefined') gtag('event', 'conversion_whatsapp');
+            });
+            document.getElementById('btn-call-gqs')?.addEventListener('click', () => {
+                if(typeof gtag !== 'undefined') gtag('event', 'click_to_call');
+            });
+        });
+    </script>
 </body>
 </html>
