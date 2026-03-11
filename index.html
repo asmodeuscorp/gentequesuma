@@ -1,424 +1,1309 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gente que Suma | Asistencia y Dignidad</title>
+    
+    <!-- OPTIMIZACIÓN SEO -->
+    <title data-i18n="meta_title">Estudio Xidito | Rotulación, Diseño de Logotipos y Fotografía en Querétaro</title>
+    <meta name="description" content="Especialistas en rotulación exterior con protección UV, stickers premium y cajas de lujo. Fotografía de producto y señalética industrial en Corregidora y Qro." data-i18n-attr="meta_desc">
+    <meta name="keywords" content="Rotulación de fachadas Querétaro, Vinil impreso protección UV, Fotografía de producto, Señalética industrial, Cajas dulceras de lujo, Stickers premium, Diseño de logotipos Querétaro">
+    
+    <!-- PRECONEXIONES PARA CARGA RÁPIDA -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGQ2WCMVFQ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RGQ2WCMVFQ');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RGQ2WCMVFQ', {
+            'send_page_view': false // Desactivamos la vista automática para manejarla manual por SPA
+        });
+    </script>
+    
+    <!-- OPTIMIZACIÓN SEO: Schema Markup LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Estudio Xidito",
+      "image": "https://tusitioweb.com/logo.png",
+      "description": "Especialistas en rotulación exterior con protección UV, stickers premium y cajas de lujo. Fotografía de producto y señalética industrial en Querétaro.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Querétaro",
+        "addressRegion": "QRO",
+        "addressCountry": "MX"
+      },
+      "telephone": "+524421260133",
+      "priceRange": "$$"
+    }
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Noto+Sans:wght@400;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Favicon Adaptado -->
+    <link rel="icon" type="image/png" href="logo.png">
     
+    <!-- Fuentes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        cloud: '#F0EEE9',
+                        navy: '#111C33',
+                        cyan: '#00D4FF',
+                        cyanDark: '#00A8CC',
+                        metalLight: '#e6e6e6',
+                        metalDark: '#cccccc',
+                        // Colores base con variables CSS
+                        primaryBase: 'var(--color-primary-base)',
+                        primaryAccent: 'var(--color-primary-accent)',
+                        primaryDark: 'var(--color-primary-dark)',
+                    },
+                    boxShadow: {
+                        'zen': '0 10px 40px -10px var(--color-shadow)',
+                        'zen-hover': '0 20px 50px -10px var(--color-shadow-hover)',
+                    },
+                    animation: {
+                        'grid-flow': 'gridFlow 20s linear infinite',
+                    },
+                    keyframes: {
+                        gridFlow: {
+                            '0%': { backgroundPosition: '0 0' },
+                            '100%': { backgroundPosition: '40px 40px' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
+        /* Definición de Variables CSS por Idioma/Tema */
         :root {
-            --color-fondo: #F0F4F8;
-            --color-primario: #003366;
-            --color-secundario: #EBF5FF;
-            --color-acento: #E67E22;
-            --color-texto: #1A1A1A;
+            /* Tema ES (Azules - Navy/Cyan) */
+            --color-primary-base: #111C33;
+            --color-primary-accent: #00D4FF;
+            --color-primary-dark: #00A8CC;
+            --color-shadow: rgba(17, 28, 51, 0.08);
+            --color-shadow-hover: rgba(17, 28, 51, 0.15);
+            --grid-line: rgba(17, 28, 51, 0.12);
+            --glow-color: rgba(0, 212, 255, 0.4);
+            --btn-accent-grad-1: #00D4FF;
+            --btn-accent-grad-2: #00A8CC;
+            --btn-accent-border: #0087A3;
         }
 
-        body { 
-            font-family: 'Noto Sans', sans-serif; 
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            overflow-x: hidden;
+        :root.theme-en {
+            /* Tema EN (Guindas/Vino) */
+            --color-primary-base: #2B0A11;
+            --color-primary-accent: #E5395A;
+            --color-primary-dark: #B3203C;
+            --color-shadow: rgba(43, 10, 17, 0.08);
+            --color-shadow-hover: rgba(43, 10, 17, 0.15);
+            --grid-line: rgba(43, 10, 17, 0.12);
+            --glow-color: rgba(229, 57, 90, 0.4);
+            --btn-accent-grad-1: #E5395A;
+            --btn-accent-grad-2: #B3203C;
+            --btn-accent-border: #8A152C;
         }
 
-        .font-elegant { font-family: 'Playfair Display', serif; }
-        .font-cursive { font-family: 'Dancing Script', cursive; }
-
-        /* Transiciones entre secciones */
-        .page-section {
-            display: none;
-            opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+        :root.theme-zh {
+            /* Tema ZH (Verde Oscuro) */
+            --color-primary-base: #0B2117;
+            --color-primary-accent: #00E676;
+            --color-primary-dark: #00B259;
+            --color-shadow: rgba(11, 33, 23, 0.08);
+            --color-shadow-hover: rgba(11, 33, 23, 0.15);
+            --grid-line: rgba(11, 33, 23, 0.12);
+            --glow-color: rgba(0, 230, 118, 0.4);
+            --btn-accent-grad-1: #00E676;
+            --btn-accent-grad-2: #00B259;
+            --btn-accent-border: #008A45;
         }
 
-        .page-section.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Estilo de la navegación activa */
-        .nav-link.active-link {
-            color: var(--color-primario);
-            font-weight: 800;
-        }
-        .nav-link.active-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            bottom: -6px;
+        /* Clases utilitarias usando las variables */
+        .text-theme-base { color: var(--color-primary-base); }
+        .text-theme-accent { color: var(--color-primary-accent); }
+        .text-theme-dark { color: var(--color-primary-dark); }
+        
+        .bg-theme-base { background-color: var(--color-primary-base); }
+        .bg-theme-accent { background-color: var(--color-primary-accent); }
+        
+        .border-theme-base { border-color: var(--color-primary-base); }
+        .border-theme-accent { border-color: var(--color-primary-accent); }
+        
+        /* Fondo Animado */
+        .metallic-grid-bg {
+            position: fixed;
+            top: 0;
             left: 0;
-            background-color: var(--color-acento);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #F0EEE9;
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+                linear-gradient(135deg, #fdfcfb 0%, #e2e2e2 50%, #fdfcfb 100%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+            background-position: 0 0, 0 0, 0 0;
+            animation: gridDiagonal 8s linear infinite;
+            transition: background-image 0.5s ease;
         }
+        @keyframes gridDiagonal {
+            0% { background-position: 0 0, 0 0, 0 0; }
+            100% { background-position: 40px 40px, 40px 40px, 0 0; }
+        }
+        body { color: var(--color-primary-base); margin: 0; overflow-x: hidden; scroll-behavior: smooth; transition: color 0.5s ease; }
+        .selection-bg::selection { background-color: var(--color-primary-accent); color: #fff; }
+        
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* --- BOTONES 3D DEGRADADOS --- */
+        .btn-zen { position: relative; padding: 1rem 2.5rem; border-radius: 9999px; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; transition: all 0.3s ease; cursor: pointer; z-index: 1; border-bottom-width: 4px; }
+        
+        .btn-accent { 
+            background: linear-gradient(135deg, var(--btn-accent-grad-1) 0%, var(--btn-accent-grad-2) 100%); 
+            color: #fff; 
+            border-color: var(--btn-accent-border); 
+            box-shadow: 0 8px 20px -5px var(--glow-color), inset 0 -2px 0 rgba(0, 0, 0, 0.1); 
+        }
+        .btn-accent:hover { 
+            background: linear-gradient(135deg, var(--color-primary-base) 0%, #000 100%); 
+            color: var(--color-primary-accent); 
+            border-color: #000000; 
+            transform: translateY(-2px); 
+            box-shadow: 0 12px 25px -5px var(--color-shadow-hover), inset 0 -2px 0 rgba(0, 0, 0, 0.2); 
+        }
+        .btn-accent:active { transform: translateY(4px); border-bottom-width: 0px; margin-top: 4px; box-shadow: 0 2px 5px -2px var(--glow-color); }
+        
+        .btn-base { 
+            background: linear-gradient(135deg, var(--color-primary-base) 0%, #000 100%); 
+            color: #FFFFFF; 
+            border-color: #000; 
+            box-shadow: 0 8px 20px -5px var(--color-shadow-hover), inset 0 -2px 0 rgba(0,0,0,0.2); 
+        }
+        .btn-base:hover { 
+            background: linear-gradient(135deg, var(--btn-accent-grad-1) 0%, var(--btn-accent-grad-2) 100%); 
+            color: #fff; 
+            border-color: var(--btn-accent-border); 
+            transform: translateY(-2px); 
+            box-shadow: 0 12px 25px -5px var(--glow-color), inset 0 -2px 0 rgba(0,0,0,0.1); 
+        }
+        .btn-base:active { transform: translateY(4px); border-bottom-width: 0px; margin-top: 4px; box-shadow: 0 2px 5px -2px var(--color-shadow-hover); }
 
-        .nav-link {
-            position: relative;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        .hero-bg {
-            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 31, 63, 0.85)), 
-                        url('https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/portada.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        p { font-size: 1.4rem; line-height: 1.8; color: #1A1A1A; font-weight: 400; }
-        h1 { font-size: 3.5rem; line-height: 1.2; }
-        h2 { font-size: 2.8rem; line-height: 1.3; color: var(--color-primario); }
-
-        .btn-shadow {
-            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
-        }
-
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        #mobile-menu.open {
-            transform: translateX(0);
-        }
-
-        .card-service {
-            background: white;
-            border-bottom: 6px solid var(--color-primario);
-            transition: transform 0.3s ease;
-        }
-        .card-service:hover {
-            transform: scale(1.02);
+        .btn-whatsapp { background: linear-gradient(135deg, #25D366 0%, #1DA851 100%); color: #FFFFFF; border-color: #14833B; box-shadow: 0 8px 20px -5px rgba(37, 211, 102, 0.5), inset 0 -2px 0 rgba(0,0,0,0.1); }
+        .btn-whatsapp:hover { background: linear-gradient(135deg, #1DA851 0%, #14833B 100%); transform: translateY(-2px); box-shadow: 0 12px 25px -5px rgba(37, 211, 102, 0.6), inset 0 -2px 0 rgba(0,0,0,0.2); }
+        .btn-whatsapp:active { transform: translateY(4px); border-bottom-width: 0px; margin-top: 4px; box-shadow: 0 2px 5px -2px rgba(37, 211, 102, 0.5); }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .marquee-item { transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .marquee-item img { transition: transform 0.7s ease; }
+        .marquee-item:hover img { transform: scale(1.05); }
+        .marquee-item.is-center { transform: scale(1.08) translateY(-15px); border-color: var(--color-primary-accent); z-index: 40; box-shadow: 0 25px 50px -12px var(--glow-color); }
+        .marquee-item.is-center .marquee-text-bg { background-color: var(--color-primary-base); border-left-color: var(--color-primary-accent); }
+        .marquee-item.is-center .marquee-text-bg span { color: #FFFFFF; }
+        
+        @keyframes pulse-border { 0%, 100% { border-color: transparent; } 50% { border-color: var(--color-primary-accent); } }
+        .typewriter-cursor { border-right-width: 3px; animation: pulse-border 1s infinite; padding-right: 4px; }
+        
+        .animate-chat-seq { animation: anim-chat 6s infinite; transform-origin: bottom left; }
+        @keyframes anim-chat { 0%, 33%, 100% { transform: scale(1) rotate(0); } 5% { transform: scale(1.15) rotate(-5deg); } 10% { transform: scale(1.2) rotate(5deg); } 15% { transform: scale(1.15) rotate(-5deg); } 20% { transform: scale(1.2) rotate(5deg); } 25% { transform: scale(1.1) rotate(0); } }
+        
+        .animate-bulb-seq { animation: anim-bulb 6s infinite; transform-origin: center; }
+        @keyframes anim-bulb { 0%, 33%, 66%, 100% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 0 transparent); } 40% { transform: scale(1.2) translateY(-5px) rotate(10deg); filter: drop-shadow(0 0 10px var(--glow-color)); } 45% { transform: scale(1.2) translateY(-5px) rotate(-10deg); filter: drop-shadow(0 0 15px var(--glow-color)); } 50% { transform: scale(1.2) translateY(-5px) rotate(10deg); filter: drop-shadow(0 0 10px var(--glow-color)); } 55% { transform: scale(1.2) translateY(-5px) rotate(-10deg); filter: drop-shadow(0 0 15px var(--glow-color)); } 60% { transform: scale(1.1) translateY(-2px) rotate(0deg); filter: drop-shadow(0 0 5px var(--glow-color)); } }
+        
+        .animate-rocket-seq { animation: anim-rocket 6s infinite; transform-origin: center; }
+        @keyframes anim-rocket { 0%, 66%, 100% { transform: translate(0, 0) scale(1); opacity: 1; } 75% { transform: translate(25px, -25px) scale(1.2); opacity: 0; } 76% { transform: translate(-25px, 25px) scale(0.5); opacity: 0; } 85% { transform: translate(0, 0) scale(1); opacity: 1; } 90% { transform: translate(0, -5px) scale(1.1); } 95% { transform: translate(0, 0) scale(1); } }
+        
+        @keyframes slideInUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-stagger-item { opacity: 0; animation: slideInUpFade 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        
+        .card-float { animation: floatCard 5s ease-in-out infinite; }
+        @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        
+        @keyframes logo-walk { 0% { transform: translateX(-15px) rotate(-5deg); } 50% { transform: translateX(15px) rotate(5deg); } 100% { transform: translateX(-15px) rotate(-5deg); } }
+        .animate-logo-walk { animation: logo-walk 4s ease-in-out infinite; }
+        
+        .hero-glow {
+            background-color: var(--color-primary-accent);
+            transition: background-color 0.5s ease;
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="selection-bg font-sans">
 
-    <!-- Navegación Superior -->
-    <nav class="fixed top-0 w-full z-[100] bg-white border-b-2 border-stone-200 shadow-md">
-        <div class="max-w-7xl mx-auto px-6 h-20 md:h-28 flex justify-between items-center">
-            <a href="javascript:void(0)" onclick="navigateTo('inicio')" class="flex items-center gap-4">
-                <img src="https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/logookclear.png" alt="Gente que Suma" class="h-14 md:h-20">
-                <div class="hidden sm:block border-l-2 border-stone-200 pl-4">
-                    <span class="block text-3xl font-bold font-cursive text-[#003366]">Gente que Suma</span>
+    <div class="metallic-grid-bg"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="fixed top-0 w-full z-50 bg-cloud/90 backdrop-blur-lg border-b border-theme-base/5 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('inicio')">
+                <img src="logo.png" alt="Logo Estudio Xidito" class="w-10 h-10 object-contain">
+                <span class="font-heading font-extrabold tracking-tight text-xl uppercase text-theme-base">Estudio <span class="text-theme-dark">Xidito</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <button onclick="navigate('inicio')" class="nav-link text-theme-dark font-heading font-semibold text-sm tracking-wide transition-colors hover:text-theme-dark" data-target="inicio" data-i18n="nav_home">Inicio</button>
+                <button onclick="navigate('servicios')" class="nav-link text-theme-base/60 font-heading font-semibold text-sm tracking-wide transition-colors hover:text-theme-dark" data-target="servicios" data-i18n="nav_services">Servicios</button>
+                <button onclick="navigate('proceso')" class="nav-link text-theme-base/60 font-heading font-semibold text-sm tracking-wide transition-colors hover:text-theme-dark" data-target="proceso" data-i18n="nav_process">Proceso</button>
+                <button onclick="navigate('portafolio')" class="nav-link text-theme-base/60 font-heading font-semibold text-sm tracking-wide transition-colors hover:text-theme-dark" data-target="portafolio" data-i18n="nav_portfolio">Portafolio</button>
+                <button onclick="navigate('novedades')" class="lang-es-only nav-link text-theme-base/60 font-heading font-semibold text-sm tracking-wide transition-colors hover:text-theme-dark" data-target="novedades" data-i18n="nav_news">Novedades</button>
+                <button onclick="navigate('contacto')" class="nav-link text-theme-base/60 font-heading font-semibold text-sm tracking-wide transition-colors hover:text-theme-dark" data-target="contacto" data-i18n="nav_contact">Contacto</button>
+                
+                <!-- SELECTOR DE IDIOMA (DESKTOP) -->
+                <div class="relative group ml-2 pl-4 border-l border-theme-base/10 py-4">
+                    <button class="flex items-center gap-2 text-theme-base font-bold text-sm hover:text-theme-dark transition-colors bg-cloud px-4 py-1.5 rounded-full border border-theme-base/5 shadow-sm">
+                        <i data-lucide="globe" class="w-4 h-4 text-theme-dark"></i> 
+                        <span data-i18n="lang_translate" class="hidden lg:inline text-xs uppercase tracking-widest text-theme-base/60">Traducir a</span>
+                        <span id="desktop-lang-label" class="text-theme-dark">ES</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="absolute top-[80%] right-0 w-32 bg-white rounded-2xl shadow-xl border border-theme-base/5 hidden group-hover:block overflow-hidden py-2 mt-1">
+                        <button onclick="setLanguage('es')" class="block w-full text-left px-5 py-2 text-sm font-medium hover:bg-cloud hover:text-theme-dark text-theme-base transition-colors">Español</button>
+                        <button onclick="setLanguage('en')" class="block w-full text-left px-5 py-2 text-sm font-medium hover:bg-cloud hover:text-theme-dark text-theme-base transition-colors">English</button>
+                        <button onclick="setLanguage('zh')" class="block w-full text-left px-5 py-2 text-sm font-medium hover:bg-cloud hover:text-theme-dark text-theme-base transition-colors">中文</button>
+                    </div>
                 </div>
-            </a>
-
-            <div class="hidden lg:flex items-center gap-10">
-                <span onclick="navigateTo('inicio')" class="nav-link active-link text-stone-700 font-bold uppercase tracking-wider">Inicio</span>
-                <span onclick="navigateTo('servicios')" class="nav-link text-stone-700 font-bold uppercase tracking-wider">Servicios</span>
-                <span onclick="navigateTo('confianza')" class="nav-link text-stone-700 font-bold uppercase tracking-wider">Confianza</span>
-                <span onclick="navigateTo('proceso')" class="nav-link text-stone-700 font-bold uppercase tracking-wider">Proceso</span>
-                <span onclick="navigateTo('contacto')" class="bg-[#E67E22] text-white px-10 py-4 rounded-full hover:bg-[#D35400] transition btn-shadow font-extrabold cursor-pointer text-lg">Contactar</span>
             </div>
 
-            <button onclick="toggleMenu()" class="lg:hidden text-[#003366] p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+            <button class="md:hidden text-theme-base p-2 bg-white rounded-lg shadow-sm border border-theme-base/5" aria-label="Abrir menú" onclick="toggleMenu()">
+                <i data-lucide="menu" id="menu-icon"></i>
             </button>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cloud absolute w-full p-6 space-y-4 border-b border-theme-base/10 shadow-xl">
+            <button onclick="navigate('inicio')" class="block w-full text-left text-lg font-heading font-semibold text-theme-base hover:text-theme-dark" data-i18n="nav_home">Inicio</button>
+            <button onclick="navigate('servicios')" class="block w-full text-left text-lg font-heading font-semibold text-theme-base hover:text-theme-dark" data-i18n="nav_services">Servicios</button>
+            <button onclick="navigate('proceso')" class="block w-full text-left text-lg font-heading font-semibold text-theme-base hover:text-theme-dark" data-i18n="nav_process">Proceso</button>
+            <button onclick="navigate('portafolio')" class="block w-full text-left text-lg font-heading font-semibold text-theme-base hover:text-theme-dark" data-i18n="nav_portfolio">Portafolio</button>
+            <button onclick="navigate('novedades')" class="lang-es-only block w-full text-left text-lg font-heading font-semibold text-theme-base hover:text-theme-dark" data-i18n="nav_news">Novedades</button>
+            <button onclick="navigate('contacto')" class="block w-full text-left text-lg font-heading font-semibold text-theme-base hover:text-theme-dark mb-4" data-i18n="nav_contact">Contacto</button>
+            
+            <!-- SELECTOR DE IDIOMA (MÓVIL) -->
+            <div class="pt-4 border-t border-theme-base/10">
+                <p class="text-[10px] font-bold text-theme-dark uppercase tracking-widest mb-3 text-center" data-i18n="lang_select">Seleccionar Idioma</p>
+                <div class="flex justify-between gap-2">
+                    <button onclick="setLanguage('es')" class="text-theme-base font-bold text-sm flex-1 bg-white py-3 rounded-xl shadow-sm border border-theme-base/5 active:bg-theme-accent transition-colors">ES</button>
+                    <button onclick="setLanguage('en')" class="text-theme-base font-bold text-sm flex-1 bg-white py-3 rounded-xl shadow-sm border border-theme-base/5 active:bg-theme-accent transition-colors">EN</button>
+                    <button onclick="setLanguage('zh')" class="text-theme-base font-bold text-sm flex-1 bg-white py-3 rounded-xl shadow-sm border border-theme-base/5 active:bg-theme-accent transition-colors">ZH</button>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- Menú Móvil -->
-    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white flex flex-col p-10 lg:hidden">
-        <div class="flex justify-end mb-10">
-            <button onclick="toggleMenu()" class="text-[#003366]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-        <div class="flex flex-col gap-12 text-center">
-            <span onclick="navigateTo('inicio'); toggleMenu()" class="text-3xl font-bold text-[#003366] uppercase tracking-widest cursor-pointer">Inicio</span>
-            <span onclick="navigateTo('servicios'); toggleMenu()" class="text-3xl font-bold text-[#003366] uppercase tracking-widest cursor-pointer">Servicios</span>
-            <span onclick="navigateTo('confianza'); toggleMenu()" class="text-3xl font-bold text-[#003366] uppercase tracking-widest cursor-pointer">Confianza</span>
-            <span onclick="navigateTo('proceso'); toggleMenu()" class="text-3xl font-bold text-[#003366] uppercase tracking-widest cursor-pointer">Proceso</span>
-            <span onclick="navigateTo('contacto'); toggleMenu()" class="bg-[#E67E22] text-white py-8 rounded-3xl text-2xl font-black mt-4 shadow-xl cursor-pointer">Contactar ahora</span>
-        </div>
-    </div>
-
-    <!-- CONTENEDOR DE SECCIONES -->
-    <main class="pt-20 md:pt-28 min-h-[90vh]">
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="relative z-10 pt-28 pb-20">
         
-        <!-- PÁGINA: INICIO -->
-        <section id="page-inicio" class="page-section active">
-            <div class="hero-bg min-h-[85vh] flex items-center justify-center px-6 py-20 text-center">
-                <div class="max-w-5xl">
-                    <h1 class="text-6xl md:text-9xl text-white font-bold mb-8 font-elegant drop-shadow-2xl">Dignidad y Paz</h1>
-                    <p class="text-2xl md:text-4xl text-white mb-14 max-w-4xl mx-auto font-bold leading-snug drop-shadow-md">
-                        Acompañamiento personal en Querétaro para que vivas con total libertad.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                        <button onclick="navigateTo('servicios')" class="w-full sm:w-auto bg-white text-[#003366] px-14 py-6 rounded-full font-black text-xl hover:bg-[#EBF5FF] transition shadow-2xl uppercase tracking-widest">Ver Servicios</button>
-                        <a id="btn-whatsapp-gqs" href="https://api.whatsapp.com/send?phone=4421260133" target="_blank" class="w-full sm:w-auto bg-[#25D366] text-white px-14 py-6 rounded-full font-black text-xl flex items-center justify-center gap-4 shadow-2xl">
-                            WhatsApp Directo
-                        </a>
+        <!-- SECCIÓN: INICIO -->
+        <section id="sec-inicio" class="section-container block max-w-6xl mx-auto px-6 py-12 md:py-24 flex items-center justify-center min-h-[75vh]">
+            <div class="reveal active grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
+                
+                <div class="flex justify-center order-2 md:order-1">
+                    <div class="relative group">
+                        <div class="absolute inset-0 hero-glow rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+                        <img src="personaje_heroe.png" alt="Personaje Estudio Xidito" fetchpriority="high" class="relative z-10 w-64 md:w-96 rounded-[3rem] drop-shadow-2xl transform group-hover:scale-105 transition-transform duration-700 object-cover">
                     </div>
                 </div>
-            </div>
-            <div class="py-24 bg-white px-6">
-                <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
-                    <div class="md:w-1/2">
-                        <h2 class="font-elegant font-bold mb-8">Usted es nuestra prioridad.</h2>
-                        <p class="mb-8 font-bold text-stone-800">No somos una empresa de servicios rápidos; somos personas dedicadas a cuidar de personas.</p>
-                        <p class="text-stone-600">Entendemos sus necesidades y respetamos sus tiempos. Nuestro objetivo es que cada día sea más sencillo y alegre para usted y su familia.</p>
-                    </div>
-                    <div class="md:w-1/2">
-                        <img src="https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/citas.png" alt="Acompañamiento" class="rounded-[4rem] shadow-2xl border-8 border-[#EBF5FF]">
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- PÁGINA: SERVICIOS -->
-        <section id="page-servicios" class="page-section bg-[#F0F4F8] py-20">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <span class="text-[#E67E22] font-black uppercase tracking-[0.4em] text-lg block mb-4">Nuestros Apoyos</span>
-                    <h2 class="font-elegant font-bold">¿Cómo podemos sumarle hoy?</h2>
-                    <div class="w-32 h-2 bg-[#E67E22] mx-auto mt-6 rounded-full"></div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="card-service p-12 rounded-[4rem] shadow-lg">
-                        <div class="text-6xl mb-8">📍</div>
-                        <h3 class="text-3xl font-black mb-6 text-[#003366]">Citas y Trámites</h3>
-                        <p class="font-bold text-stone-700">Le acompañamos a sus consultas médicas, bancos o trámites gubernamentales. Brindamos paciencia y seguridad en cada paso.</p>
-                    </div>
-                    <div class="card-service p-12 rounded-[4rem] shadow-lg">
-                        <div class="text-6xl mb-8">🛒</div>
-                        <h3 class="text-3xl font-black mb-6 text-[#003366]">Compras y Recados</h3>
-                        <p class="font-bold text-stone-700">Le apoyamos con las bolsas y la movilidad en el súper o la farmacia para que sus salidas sean tranquilas y sin esfuerzo.</p>
-                    </div>
-                    <div class="card-service p-12 rounded-[4rem] shadow-lg">
-                        <div class="text-6xl mb-8">📱</div>
-                        <h3 class="text-3xl font-black mb-6 text-[#003366]">Apoyo Tecnológico</h3>
-                        <p class="font-bold text-stone-700">Le enseñamos con calma a usar su celular o tableta para que esté siempre cerca de sus nietos y familia.</p>
-                    </div>
-                    <div class="card-service p-12 rounded-[4rem] shadow-lg">
-                        <div class="text-6xl mb-8">☕</div>
-                        <h3 class="text-3xl font-black mb-6 text-[#003366]">Tiempo de Calidad</h3>
-                        <p class="font-bold text-stone-700">Estamos para escucharle, caminar un poco o disfrutar de una charla amena. Valoramos la compañía humana real.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PÁGINA: CONFIANZA -->
-        <section id="page-confianza" class="page-section py-20 bg-white">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-20">
-                    <h2 class="font-elegant font-bold">Su seguridad es lo primero</h2>
-                    <p class="text-2xl text-stone-500 mt-4">Transparencia total para usted y su familia.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div class="space-y-10">
-                        <div class="flex items-center gap-8 p-8 bg-[#EBF5FF] rounded-[3rem] border-l-8 border-[#003366]">
-                            <span class="text-5xl">🆔</span>
-                            <p class="text-2xl font-black text-[#003366]">Personal identificado con credencial oficial.</p>
-                        </div>
-                        <div class="flex items-center gap-8 p-8 bg-[#EBF5FF] rounded-[3rem] border-l-8 border-[#003366]">
-                            <span class="text-5xl">🧘</span>
-                            <p class="text-2xl font-black text-[#003366]">Sin prisas: nos adaptamos a su paso natural.</p>
-                        </div>
-                        <div class="flex items-center gap-8 p-8 bg-[#EBF5FF] rounded-[3rem] border-l-8 border-[#003366]">
-                            <span class="text-5xl">📝</span>
-                            <p class="text-2xl font-black text-[#003366]">Notas claras al finalizar cada apoyo.</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#003366] p-12 rounded-[5rem] text-white text-center shadow-2xl">
-                        <h3 class="text-4xl font-elegant mb-8">"Lo que se retribuye es el tiempo y el cariño, el vehículo es solo un apoyo."</h3>
-                        <div class="w-20 h-1 bg-[#E67E22] mx-auto mb-8"></div>
-                        <p class="text-xl font-bold opacity-80">Gente que Suma | Querétaro</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PÁGINA: PROCESO -->
-        <section id="page-proceso" class="page-section py-20 bg-[#F0F4F8]">
-            <div class="max-w-5xl mx-auto px-6 text-center">
-                <h2 class="font-elegant font-bold mb-20">¿Cómo trabajamos?</h2>
-                <div class="relative space-y-12 text-left">
-                    <div class="flex items-center gap-10 bg-white p-12 rounded-[4rem] shadow-md">
-                        <div class="bg-[#003366] text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl font-black flex-shrink-0">1</div>
-                        <div>
-                            <h4 class="text-3xl font-black mb-4 text-[#003366]">Presentación</h4>
-                            <p class="text-xl font-bold text-stone-600">Llegamos a su puerta, nos identificamos y confirmamos qué actividad realizaremos hoy.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-10 bg-white p-12 rounded-[4rem] shadow-md">
-                        <div class="bg-[#003366] text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl font-black flex-shrink-0">2</div>
-                        <div>
-                            <h4 class="text-3xl font-black mb-4 text-[#003366]">Acompañamiento</h4>
-                            <p class="text-xl font-bold text-stone-600">Realizamos la tarea con calma. Estamos enfocados totalmente en usted durante todo el tiempo.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-10 bg-[#003366] text-white p-12 rounded-[4rem] shadow-2xl">
-                        <div class="bg-[#E67E22] text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl font-black flex-shrink-0">3</div>
-                        <div>
-                            <h4 class="text-3xl font-black mb-4 text-[#E67E22]">Cierre Seguro</h4>
-                            <p class="text-xl font-bold opacity-90">Entregamos su comprobante detallando el tiempo y los apoyos. Todo bajo control.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PÁGINA: CONTACTO -->
-        <section id="page-contacto" class="page-section py-20">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="bg-white p-12 md:p-24 rounded-[5rem] shadow-2xl border-4 border-[#EBF5FF]">
-                    <div class="text-center mb-16">
-                        <h2 class="font-elegant font-bold text-[#003366] mb-6 text-center w-full">Estamos para servirle</h2>
-                        <p class="text-2xl font-bold text-stone-500 mb-8">Llámenos o déjenos sus datos.</p>
-                        <a id="btn-call-gqs" href="tel:4421260133" class="inline-block bg-[#EBF5FF] px-12 py-6 rounded-full text-4xl font-black text-[#003366] border-2 border-[#003366] hover:bg-[#003366] hover:text-white transition">442-126-0133</a>
+                <div class="space-y-8 text-center md:text-left order-1 md:order-2">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-theme-base/10 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-theme-accent animate-pulse"></span>
+                        <span class="text-xs font-heading font-bold tracking-widest text-theme-base uppercase" data-i18n="hero_agency">Agencia Creativa</span>
                     </div>
 
-                    <form id="contactForm" class="space-y-12">
-                        <div class="grid md:grid-cols-2 gap-12">
-                            <div>
-                                <label class="text-xl font-black text-[#003366] uppercase tracking-widest block mb-4">Su Nombre</label>
-                                <input type="text" id="nombre" required placeholder="Nombre completo" class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold">
-                            </div>
-                            <div>
-                                <label class="text-xl font-black text-[#003366] uppercase tracking-widest block mb-4">Su Teléfono</label>
-                                <input type="tel" id="telefono" required placeholder="10 dígitos" class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="text-xl font-black text-[#003366] uppercase tracking-widest block mb-4">¿Qué necesita?</label>
-                            <textarea id="mensaje" rows="3" required placeholder="Cuéntenos cómo podemos ayudarle..." class="w-full bg-stone-50 border-b-4 border-stone-200 py-6 outline-none focus:border-[#E67E22] text-2xl font-bold"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-[#E67E22] text-white py-10 rounded-[3rem] text-3xl font-black uppercase tracking-widest shadow-2xl hover:bg-[#D35400] transition-all">
-                            Enviar Solicitud
+                    <h1 class="font-heading font-black text-5xl md:text-6xl lg:text-7xl text-theme-base leading-[1.1] tracking-tight" data-i18n="hero_title">
+                        Creamos lo que imaginas, con <span class="text-theme-dark">precisión digital</span> y alma artesana.
+                    </h1>
+                    
+                    <div class="text-lg md:text-xl font-medium text-theme-base/70 h-8">
+                        <span id="typewriter" class="text-theme-base typewriter-cursor"></span>
+                    </div>
+
+                    <div class="pt-6 flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+                        <button onclick="navigate('contacto')" class="btn-zen btn-accent w-full sm:w-auto" data-i18n="hero_btn_start">
+                            <i data-lucide="zap" class="w-5 h-5"></i> Iniciar Proyecto
                         </button>
-                        <p id="feedback" class="hidden text-center text-[#003366] text-xl font-black italic animate-bounce mt-4">Abriendo su correo...</p>
-                    </form>
+                        <button onclick="navigate('servicios')" class="btn-zen btn-base w-full sm:w-auto" data-i18n="hero_btn_cat">
+                            Ver Catálogo
+                        </button>
+                    </div>
+
+                    <div class="pt-8 w-full md:w-auto lang-es-only">
+                        <div onclick="openPromoWhatsApp('menu')" class="cursor-pointer group flex items-center gap-4 bg-white/70 backdrop-blur-sm hover:bg-white border border-theme-accent/30 p-3 pr-5 rounded-2xl shadow-sm hover:shadow-zen transition-all duration-300">
+                            <div class="bg-theme-accent/20 text-theme-dark p-2 rounded-xl group-hover:bg-theme-accent group-hover:text-theme-base transition-colors">
+                                <i data-lucide="bell-ring" class="w-5 h-5 animate-pulse"></i>
+                            </div>
+                            <div class="text-left flex-1">
+                                <p class="text-[10px] font-bold text-theme-dark uppercase tracking-widest" data-i18n="hero_news_tag">Última Novedad</p>
+                                <p class="text-sm font-heading font-semibold text-theme-base mt-0.5" data-i18n="hero_news_txt">🚀 Menú Web Profesional por $500 (Solo 3 lugares)</p>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-theme-base/30 group-hover:text-theme-dark group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN: SERVICIOS -->
+        <section id="sec-servicios" class="section-container hidden max-w-6xl mx-auto px-6 py-20">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading font-black text-4xl md:text-5xl text-theme-base tracking-tight" data-i18n="sect_serv_title">
+                    Soluciones Industriales y Creativas
+                </h2>
+                <div class="w-24 h-1 bg-theme-accent mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                <!-- Se inyecta con JS -->
+            </div>
+
+            <!-- Modal de Servicio Digital Zen -->
+            <div id="service-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 md:p-6 bg-theme-base/80 backdrop-blur-md">
+                <div class="absolute inset-0 cursor-pointer" onclick="closeModal()"></div>
+                <div class="w-full max-w-3xl bg-white border border-cloud rounded-[2rem] shadow-2xl flex flex-col max-h-[85vh] md:max-h-[90vh] relative z-10 overflow-hidden">
+                    <div class="p-6 md:p-12 overflow-y-auto hide-scrollbar w-full h-full">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 border-b border-cloud pb-6">
+                            <div class="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left w-full">
+                                <div id="modal-icon-container" class="w-20 h-20 bg-theme-accent/10 border border-theme-accent/20 rounded-2xl flex items-center justify-center text-theme-dark shrink-0">
+                                </div>
+                                <div class="mt-2 flex-1">
+                                    <h3 id="modal-title" class="text-3xl md:text-4xl font-heading font-black text-theme-base tracking-tight"></h3>
+                                    <p class="text-theme-dark font-bold uppercase tracking-widest text-[11px] mt-2" data-i18n="modal_cat">
+                                        Catálogo de Soluciones
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shrink-0 w-full md:w-auto flex justify-center md:justify-end">
+                                <button aria-label="Cerrar modal" onclick="closeModal()" class="flex items-center justify-center gap-2 px-5 py-3 bg-cloud hover:bg-theme-base text-theme-base hover:text-white rounded-xl font-bold uppercase tracking-widest text-xs transition-colors shadow-sm border border-theme-base/10 w-full md:w-auto" data-i18n="modal_btn_back">
+                                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Regresar
+                                </button>
+                            </div>
+                        </div>
+                        <div id="modal-details" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+                            <!-- Detalles inyectados -->
+                        </div>
+                        <div class="flex justify-center mt-8 w-full group pb-2">
+                            <a id="modal-cta" href="#" target="_blank" rel="noopener noreferrer" class="btn-zen btn-accent w-full md:w-auto text-lg py-4" data-i18n="modal_btn_quote">
+                                <span class="flex items-center justify-center gap-3">
+                                    ¡COTIZAR ESTE SERVICIO! <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-2 transition-transform"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- SECCIÓN: PROCESO -->
+        <section id="sec-proceso" class="section-container hidden max-w-5xl mx-auto px-6 py-20">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-heading font-black text-4xl md:text-5xl text-theme-base tracking-tight" data-i18n="sect_proc_title">
+                    Metodología de Trabajo
+                </h2>
+                <div class="w-24 h-1 bg-theme-accent mx-auto mt-6 rounded-full mb-6"></div>
+                <p class="text-theme-base/70 max-w-2xl mx-auto text-lg" data-i18n="sect_proc_desc">
+                    Hacer realidad tu proyecto es muy sencillo. Te acompañamos paso a paso para que el resultado final sea impecable.
+                </p>
+            </div>
+
+            <div class="relative reveal">
+                <div class="hidden md:block absolute top-[40px] left-[10%] w-[80%] h-[2px] bg-gradient-to-r from-cloud via-theme-base/10 to-cloud z-0"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-theme-dark shadow-zen border border-theme-base/5 mb-6 relative">
+                            <div class="absolute inset-0 border border-theme-accent rounded-2xl scale-110 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"></div>
+                            <i data-lucide="message-square" class="w-10 h-10 animate-chat-seq"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-theme-base/5 w-full flex-1">
+                            <h3 class="text-xl font-heading font-bold text-theme-base mb-3 flex items-center justify-center gap-2" data-i18n="proc_1_title">
+                                <span class="text-theme-dark">01.</span> Platiquemos
+                            </h3>
+                            <p class="text-theme-base/70 text-sm leading-relaxed" data-i18n="proc_1_desc">Mándanos un mensajito contándonos qué necesitas. Escuchamos tus ideas y te enviamos una propuesta clara y sin enredos.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-theme-base shadow-zen border border-theme-base/5 mb-6 relative">
+                            <div class="absolute inset-0 border border-theme-accent rounded-2xl scale-110 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"></div>
+                            <i data-lucide="lightbulb" class="w-10 h-10 animate-bulb-seq"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-theme-base/5 w-full flex-1">
+                            <h3 class="text-xl font-heading font-bold text-theme-base mb-3 flex items-center justify-center gap-2" data-i18n="proc_2_title">
+                                <span class="text-theme-dark">02.</span> Manos a la obra
+                            </h3>
+                            <p class="text-theme-base/70 text-sm leading-relaxed" data-i18n="proc_2_desc">Aquí entra la magia del taller. Empezamos a diseñar y armar tu proyecto cuidando cada detalle para que quede perfecto.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-theme-dark shadow-zen border border-theme-base/5 mb-6 relative">
+                            <div class="absolute inset-0 border border-theme-accent rounded-2xl scale-110 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"></div>
+                            <i data-lucide="rocket" class="w-10 h-10 animate-rocket-seq"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-theme-base/5 w-full flex-1">
+                            <h3 class="text-xl font-heading font-bold text-theme-base mb-3 flex items-center justify-center gap-2" data-i18n="proc_3_title">
+                                <span class="text-theme-dark">03.</span> Listo para brillar
+                            </h3>
+                            <p class="text-theme-base/70 text-sm leading-relaxed" data-i18n="proc_3_desc">¡Tu proyecto cobra vida! Ya sea la nueva imagen de tu negocio o la piñata de tus sueños, te lo entregamos listo para presumir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center flex justify-center reveal">
+                <button onclick="navigate('contacto')" class="btn-zen btn-accent text-lg" data-i18n="proc_btn">
+                    Cotizar mi idea <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: PORTAFOLIO -->
+        <section id="sec-portafolio" class="section-container hidden max-w-[1400px] mx-auto px-6 py-20 overflow-hidden">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading font-black text-4xl md:text-5xl text-theme-base tracking-tight" data-i18n="sect_port_title">
+                    Nuestro Trabajo
+                </h2>
+                <div class="w-24 h-1 bg-theme-accent mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="space-y-8 relative reveal">
+                <div class="flex w-max" style="animation: marqueeLeft 40s linear infinite;">
+                    <div id="marquee-row-1" class="flex gap-8 pr-8 w-max"></div>
+                    <div id="marquee-row-1-clone" class="flex gap-8 pr-8 w-max"></div>
+                </div>
+
+                <div class="flex w-max mt-4" style="animation: marqueeRight 45s linear infinite;">
+                    <div id="marquee-row-2" class="flex gap-8 pr-8 w-max"></div>
+                    <div id="marquee-row-2-clone" class="flex gap-8 pr-8 w-max"></div>
+                </div>
+            </div>
+            
+            <div class="mt-20 flex justify-center reveal">
+                <a href="https://www.instagram.com/estudio.xidito/" target="_blank" rel="noopener noreferrer" class="btn-zen btn-base" data-i18n="port_btn">
+                    <i data-lucide="instagram" class="w-5 h-5"></i> Visita nuestro Instagram
+                </a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: NOVEDADES -->
+        <section id="sec-novedades" class="section-container hidden max-w-6xl mx-auto px-6 py-20">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading font-black text-4xl md:text-5xl text-theme-base tracking-tight" data-i18n="sect_nov_title">
+                    Novedades y Promos
+                </h2>
+                <div class="w-24 h-1 bg-theme-accent mx-auto mt-6 rounded-full"></div>
+                <p class="text-theme-base/70 mt-6 max-w-2xl mx-auto text-lg font-medium" data-i18n="sect_nov_desc">
+                    Entérate de nuestros últimos proyectos, descuentos exclusivos y lo que pasa dentro del taller de Estudio Xidito.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+                <!-- Tarjeta 1 (Topper-Manía) -->
+                <div class="bg-white rounded-[2rem] border border-theme-base/5 shadow-zen hover:shadow-zen-hover transition-all duration-300 overflow-hidden group flex flex-col cursor-pointer" onclick="openPromoWhatsApp('topper')">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="topper.jpg" alt="Cake Topper Multicapa" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-theme-accent text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md" data-i18n="nov_1_tag">
+                            OFERTA 🎂
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <p class="text-xs text-theme-base/50 font-bold mb-3 flex items-center gap-1" data-i18n="nov_1_cat"><i data-lucide="star" class="w-3 h-3 text-theme-dark"></i> Producto Estrella</p>
+                        <h3 class="text-xl font-heading font-bold text-theme-base mb-3" data-i18n="nov_1_title">Topper-Manía: ¡Dale vida a tu pastel!</h3>
+                        <p class="text-theme-base/70 text-sm mb-6 flex-1 leading-relaxed" data-i18n="nov_1_desc">Crea un impacto visual único con nuestros Cake Toppers multicapa personalizados. Calidad premium y diseño de autor por solo $180 MXN. ¡Haz tu pedido hoy!</p>
+                        <span class="text-theme-dark font-bold text-sm flex items-center group-hover:text-theme-base transition-colors" data-i18n="nov_1_btn">
+                            Quiero mi Topper <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 (Menú Web Profesional) -->
+                <div class="bg-white rounded-[2rem] border border-theme-base/5 shadow-zen hover:shadow-zen-hover transition-all duration-300 overflow-hidden group flex flex-col cursor-pointer" onclick="openPromoWhatsApp('menu')">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="menuqr.jpg" alt="Menú Web Profesional" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-theme-base text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md" data-i18n="nov_2_tag">
+                            SOLO 3 LUGARES 🚀
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <p class="text-xs text-theme-base/50 font-bold mb-3 flex items-center gap-1" data-i18n="nov_2_cat"><i data-lucide="smartphone" class="w-3 h-3 text-theme-dark"></i> Promoción Especial</p>
+                        <h3 class="text-xl font-heading font-bold text-theme-base mb-3" data-i18n="nov_2_title">Menú Web Profesional: ¡Adiós al PDF pesado!</h3>
+                        <p class="text-theme-base/70 text-sm mb-6 flex-1 leading-relaxed" data-i18n="nov_2_desc">¡Ya no hagas que tus clientes sufran con un PDF que nunca carga! Buscamos 3 negocios para el catálogo 2026. Incluye: abre al segundo, diseño a tu estilo, pedidos por WA, reseñas en Google Maps y tu propia dirección web (estudio.xidito.com/tu-negocio). ¡Por solo $500 MXN!</p>
+                        <span class="text-theme-dark font-bold text-sm flex items-center group-hover:text-theme-base transition-colors" data-i18n="nov_2_btn">
+                            Apartar mi lugar <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 (Sticker Slap) -->
+                <div class="bg-white rounded-[2rem] border border-theme-base/5 shadow-zen hover:shadow-zen-hover transition-all duration-300 overflow-hidden group flex flex-col cursor-pointer" onclick="openPromoWhatsApp('sticker')">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="stickers.jpg" alt="Planillas de Stickers" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-[#25D366] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md" data-i18n="nov_3_tag">
+                            PROMO 🏷️
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <p class="text-xs text-theme-base/50 font-bold mb-3 flex items-center gap-1" data-i18n="nov_3_cat"><i data-lucide="tag" class="w-3 h-3 text-theme-dark"></i> Más Vendidos</p>
+                        <h3 class="text-xl font-heading font-bold text-theme-base mb-3" data-i18n="nov_3_title">Sticker Slap: ¡Tu marca en todos lados!</h3>
+                        <p class="text-theme-base/70 text-sm mb-6 flex-1 leading-relaxed" data-i18n="nov_3_desc">Llévate 10 planillas (1/4 de carta) con tus diseños favoritos y corte a contorno por solo $250 MXN. ¡Calidad profesional lista para pegar!</p>
+                        <span class="text-theme-dark font-bold text-sm flex items-center group-hover:text-theme-base transition-colors" data-i18n="nov_3_btn">
+                            Ver paquetes <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CONTACTO -->
+        <section id="sec-contacto" class="section-container hidden max-w-6xl mx-auto px-6 py-20">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading font-black text-4xl md:text-5xl text-theme-base tracking-tight" data-i18n="sect_cont_title">
+                    Conecta con nosotros
+                </h2>
+                <div class="w-24 h-1 bg-theme-accent mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 reveal">
+                <div class="space-y-8">
+                    <div class="p-8 bg-white rounded-3xl shadow-zen border border-theme-base/5">
+                        <h3 class="text-xl font-heading font-bold mb-6 text-theme-base flex items-center gap-2" data-i18n="cont_channels">
+                            <i data-lucide="zap" class="text-theme-dark w-5 h-5"></i> Canales Directos
+                        </h3>
+                        <div class="space-y-4 flex flex-col items-start w-full">
+                            <a id="btn-wa-direct" href="https://wa.me/524421260133?text=Hola%2C%20te%20contacto%20desde%20tu%20p%C3%A1gina" target="_blank" rel="noopener noreferrer" class="btn-zen btn-whatsapp w-full track-wa" data-i18n="cont_wa">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Directo
+                            </a>
+                            <a id="btn-call-directo" href="tel:+524421260133" class="btn-zen btn-base w-full mt-2" data-i18n="cont_tel">
+                                <i data-lucide="phone" class="w-5 h-5"></i> Tel: 442 126 01 33
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-white rounded-3xl shadow-zen border border-theme-base/5">
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-theme-dark mb-6 flex items-center gap-3" data-i18n="cont_hours">
+                            <i data-lucide="clock" class="w-5 h-5"></i> Horarios del Taller
+                        </h3>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center justify-between text-theme-base border-b border-cloud pb-4">
+                                <span class="font-medium" data-i18n="cont_mf">Lunes a Viernes</span>
+                                <span class="font-bold bg-cloud px-3 py-1 rounded-lg text-sm">09:00 - 18:00</span>
+                            </div>
+                            <div class="flex items-center justify-between text-theme-base pt-2">
+                                <span class="font-medium" data-i18n="cont_we">Fines de semana</span>
+                                <span class="font-bold text-theme-dark text-sm" data-i18n="cont_appt">Previa Cita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-white rounded-3xl shadow-zen border border-theme-base/5 flex flex-col group overflow-hidden">
+                    <h3 class="text-xl font-heading font-bold mb-6 text-theme-base flex items-center gap-2" data-i18n="cont_loc">
+                        <i data-lucide="map-pin" class="text-theme-dark w-5 h-5"></i> Ubicación Estratégica
+                    </h3>
+                    <div class="flex-1 rounded-2xl mb-6 flex flex-col items-center justify-center overflow-hidden min-h-[200px] relative bg-cloud border border-theme-base/5">
+                        <img src="ubicacion.jpg" alt="Ubicación Estudio Xidito" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <p class="text-center text-theme-base/70 font-medium text-sm mb-6 bg-cloud py-2 rounded-lg" data-i18n="cont_loc_desc">
+                        Atención presencial únicamente con previa cita.
+                    </p>
+                    <a href="https://maps.app.goo.gl/ND74azWAr35eCKHz7" target="_blank" rel="noopener noreferrer" class="btn-zen btn-accent w-full text-sm" data-i18n="cont_loc_btn">
+                        Abrir en Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: FAQ -->
+        <section class="max-w-4xl mx-auto px-6 py-20 reveal">
+            <h3 class="font-heading font-bold text-2xl text-theme-base mb-6 text-center" data-i18n="sect_faq_title">Resolvemos tus dudas</h3>
+            <div class="space-y-4">
+                <details class="bg-white rounded-2xl p-6 shadow-sm border border-theme-base/5 group cursor-pointer">
+                    <summary class="font-bold text-theme-base outline-none" data-i18n="faq_1_q">Diferencias entre rotulación de interiores y exteriores: ¿Por qué usar protección UV?</summary>
+                    <p class="mt-4 text-theme-base/70 text-sm leading-relaxed" data-i18n="faq_1_a">La rotulación exterior se enfrenta al sol, la lluvia y el polvo. Por eso en Estudio Xidito utilizamos vinil impreso con protección UV de hasta 2 años. Al ser una capa extra sobre la impresión, no solo evita que tu marca se decolore, sino que también hace que el vinil sea 100% lavable y extra resistente para cualquier uso.</p>
+                </details>
+                <details class="bg-white rounded-2xl p-6 shadow-sm border border-theme-base/5 group cursor-pointer">
+                    <summary class="font-bold text-theme-base outline-none" data-i18n="faq_2_q">Señalética y letreros: ¿Es solo para el sector industrial?</summary>
+                    <p class="mt-4 text-theme-base/70 text-sm leading-relaxed" data-i18n="faq_2_a">¡Para nada! Aunque producimos señalética industrial bajo norma oficial (protección civil) para naves y fábricas, también diseñamos y fabricamos señalización estética y profesional para interiores, oficinas y negocios comerciales que buscan orientar a sus clientes con un gran diseño.</p>
+                </details>
+                <details class="bg-white rounded-2xl p-6 shadow-sm border border-theme-base/5 group cursor-pointer">
+                    <summary class="font-bold text-theme-base outline-none" data-i18n="faq_3_q">Tendencias en cajas dulceras de lujo para eventos exclusivos</summary>
+                    <p class="mt-4 text-theme-base/70 text-sm leading-relaxed" data-i18n="faq_3_a">Atrás quedaron las bolsitas de plástico. Para bautizos, XV años o bodas, diseñamos cajas dulceras de lujo con cortes precisos y materiales premium. Son un detalle único que tus invitados querrán conservar como recuerdo de tu fiesta chidita.</p>
+                </details>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#001F3F] text-blue-200 py-24 px-6 border-t-8 border-[#E67E22]">
-        <div class="max-w-7xl mx-auto text-center">
-            <img src="https://raw.githubusercontent.com/gentequesuma/website/refs/heads/main/logookclear.png" class="h-20 brightness-0 invert opacity-60 mb-8 mx-auto">
-            <h3 class="text-5xl text-white font-cursive mb-6">Gente que Suma</h3>
-            <p class="max-w-xl text-xl font-bold italic opacity-80 leading-relaxed mx-auto">Asistencia civil y acompañamiento humano en Querétaro.</p>
-            <div class="mt-10 border-t border-blue-900 pt-10 text-blue-400 text-sm font-bold uppercase tracking-[0.3em]">
-                <p>© 2026 Gente que Suma. Respeto y Dignidad.</p>
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="relative z-10 py-16 bg-theme-base text-white mt-10 rounded-t-[3rem]">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+            <div class="text-center md:text-left space-y-6">
+                <div class="flex items-center justify-center md:justify-start space-x-3">
+                    <div class="animate-logo-walk">
+                        <img src="logo.png" alt="Logo Flat" loading="lazy" class="w-10 h-10 object-contain">
+                    </div>
+                    <span class="font-heading font-black tracking-tight text-2xl uppercase">ESTUDIO <span class="text-theme-accent">XIDITO</span></span>
+                </div>
+                <p class="text-cloud/60 max-w-sm text-sm leading-relaxed font-medium" data-i18n="foot_desc">
+                    Dando vida a tus ideas con creatividad y diseño de alta precisión.
+                </p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end space-y-8">
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/estudio.xidito/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-theme-accent hover:text-theme-base transition-colors shadow-sm">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61579203017269" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-theme-accent hover:text-theme-base transition-colors shadow-sm">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a id="btn-wa-float-footer" href="https://wa.me/524421260133" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#25D366] transition-colors shadow-sm track-wa">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                
+                <!-- ENLACES DE IDIOMA EN EL FOOTER -->
+                <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-cloud/50 uppercase">
+                    <button onclick="setLanguage('es')" class="hover:text-theme-accent transition-colors">Español</button>
+                    <span>|</span>
+                    <button onclick="setLanguage('en')" class="hover:text-theme-accent transition-colors">English</button>
+                    <span>|</span>
+                    <button onclick="setLanguage('zh')" class="hover:text-theme-accent transition-colors">中文</button>
+                </div>
+
+                <p class="text-xs text-cloud/40 font-medium tracking-widest uppercase" data-i18n="foot_copy">© 2026 Estudio Xidito</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Flotante -->
-    <a href="https://api.whatsapp.com/send?phone=4421260133" target="_blank" class="fixed bottom-10 right-10 bg-[#25D366] text-white p-6 rounded-full shadow-2xl z-[150] hover:scale-110 transition-transform flex items-center gap-4 border-4 border-white">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.973L0 16l4.104-1.076a7.864 7.864 0 0 0 3.891 1.018h.003c4.367 0 7.926-3.559 7.93-7.93a7.876 7.876 0 0 0-2.326-5.668z"/></svg>
-        <span class="hidden md:inline text-2xl font-black uppercase tracking-wider">WhatsApp</span>
-    </a>
+    <!-- Botón Flotante WhatsApp -->
+    <div class="fixed bottom-8 right-8 z-[100] group">
+        <a id="btn-wa-corner" href="https://wa.me/524421260133" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp" class="w-16 h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:bg-[#1DA851] hover:-translate-y-2 transition-all duration-300 track-wa">
+            <i data-lucide="message-circle" class="w-8 h-8 fill-current"></i>
+        </a>
+    </div>
 
+    <!-- SCRIPT PRINCIPAL, MÚLTIPLES IDIOMAS Y MÉTRICAS GA4 -->
     <script>
-        // --- 1. LÓGICA DE NAVEGACIÓN ---
-        function navigateTo(sectionId) {
-            // Ocultar todas las secciones
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(sec => sec.classList.remove('active'));
+        lucide.createIcons();
 
-            // Quitar clase activa de los links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active-link'));
-
-            // Mostrar la seleccionada
-            const activeSection = document.getElementById('page-' + sectionId);
-            if(activeSection) {
-                activeSection.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        // ==========================================
+        // 1. SISTEMA DE MÉTRICAS GA4 (ESTUDIO XIDITO)
+        // ==========================================
+        
+        // Función segura para enviar a gtag
+        function sendEvent(eventName, params = {}) {
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, params);
+                // console.log("GA4 Event:", eventName, params); // Descomentar para depurar
             }
+        }
 
-            // Marcar link activo
-            navLinks.forEach(link => {
-                if(link.getAttribute('onclick') && link.getAttribute('onclick').includes("'" + sectionId + "'")) {
-                    link.classList.add('active-link');
+        // Métrica 3: Duración de Sesión Precisa
+        let sessionStartTime = Date.now();
+        window.addEventListener('beforeunload', () => {
+            let sessionDurationSecs = Math.round((Date.now() - sessionStartTime) / 1000);
+            sendEvent('session_duracion', { valor_segundos: sessionDurationSecs });
+        });
+
+        // Métrica 2: Tasa de Interés Real (10 segundos)
+        setTimeout(() => {
+            sendEvent('engaged_10s', { status: 'activo' });
+        }, 10000);
+
+        // Métrica 6: Fidelidad del Usuario (Nuevo vs Recurrente)
+        const userType = localStorage.getItem('xidito_user') ? 'recurrente' : 'nuevo';
+        if (userType === 'nuevo') {
+            localStorage.setItem('xidito_user', 'true');
+        }
+        sendEvent('usuario_fidelidad', { tipo: userType });
+
+        // Métrica 5: Atribución de Tráfico (UTM Tracking)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('utm_source') || urlParams.has('utm_campaign')) {
+            sendEvent('visita_campana', {
+                source: urlParams.get('utm_source') || 'directo',
+                medium: urlParams.get('utm_medium') || 'ninguno',
+                campaign: urlParams.get('utm_campaign') || 'organico'
+            });
+        }
+
+        // Métrica 4: Profundidad de Desplazamiento (Scroll Depth)
+        let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+        window.addEventListener('scroll', () => {
+            let scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            [25, 50, 75, 100].forEach(mark => {
+                if (scrollPercent >= mark && !scrollMarks[mark]) {
+                    scrollMarks[mark] = true;
+                    sendEvent('scroll_depth', { porcentaje: mark });
+                }
+            });
+        });
+
+        // Métrica 9: Clic de Llamada Directa
+        document.getElementById('btn-call-directo')?.addEventListener('click', () => {
+            sendEvent('click_to_call', { ubicacion: 'seccion_contacto' });
+        });
+
+        // Métrica 8: Conversión Directa WhatsApp (Aplica a todos los botones con clase .track-wa)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.track-wa').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    sendEvent('conversion_whatsapp', { origen: e.currentTarget.id || 'whatsapp_link' });
+                });
+            });
+            
+            // Disparar la primera vista de página (Métrica 1 SPA)
+            sendEvent('vista_seccion', { nombre_seccion: 'inicio' });
+            
+            // Métrica 7: Geolocalización básica por Zona Horaria
+            sendEvent('geolocalizacion_visitante', { zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone });
+        });
+
+
+        // ==========================================
+        // 2. DICCIONARIO DE TRADUCCIONES (i18n)
+        // ==========================================
+        const i18n = {
+            es: {
+                meta_title: "Estudio Xidito | Rotulación, Diseño de Logotipos y Fotografía en Querétaro",
+                meta_desc: "Especialistas en rotulación exterior con protección UV, stickers premium y cajas de lujo. Fotografía de producto y señalética industrial en Corregidora y Qro.",
+                nav_home: "Inicio", nav_services: "Servicios", nav_process: "Proceso", nav_portfolio: "Portafolio", nav_news: "Novedades", nav_contact: "Contacto",
+                hero_agency: "Agencia Creativa",
+                hero_title: "Creamos lo que imaginas, con <span class='text-theme-dark'>precisión digital</span> y alma artesana.",
+                hero_btn_start: "<i data-lucide='zap' class='w-5 h-5'></i> Iniciar Proyecto",
+                hero_btn_cat: "Ver Catálogo",
+                hero_news_tag: "Última Novedad",
+                hero_news_txt: "🚀 Menú Web Profesional por $500 (Solo 3 lugares)",
+                sect_serv_title: "Soluciones Industriales y Creativas",
+                modal_cat: "Catálogo de Soluciones",
+                modal_btn_back: "<i data-lucide='arrow-left' class='w-4 h-4'></i> Regresar",
+                modal_btn_quote: "<span class='flex items-center justify-center gap-3'>¡COTIZAR ESTE SERVICIO! <i data-lucide='arrow-right' class='w-5 h-5 group-hover:translate-x-2 transition-transform'></i></span>",
+                sect_proc_title: "Metodología de Trabajo",
+                sect_proc_desc: "Hacer realidad tu proyecto es muy sencillo. Te acompañamos paso a paso para que el resultado final sea impecable.",
+                proc_1_title: "<span class='text-theme-dark'>01.</span> Platiquemos",
+                proc_1_desc: "Mándanos un mensajito contándonos qué necesitas. Escuchamos tus ideas y te enviamos una propuesta clara y sin enredos.",
+                proc_2_title: "<span class='text-theme-dark'>02.</span> Manos a la obra",
+                proc_2_desc: "Aquí entra la magia del taller. Empezamos a diseñar y armar tu proyecto cuidando cada detalle para que quede perfecto.",
+                proc_3_title: "<span class='text-theme-dark'>03.</span> Listo para brillar",
+                proc_3_desc: "¡Tu proyecto cobra vida! Ya sea la nueva imagen de tu negocio o la piñata de tus sueños, te lo entregamos listo para presumir.",
+                proc_btn: "Cotizar mi idea <i data-lucide='arrow-right' class='ml-2 w-5 h-5'></i>",
+                sect_port_title: "Nuestro Trabajo",
+                port_btn: "<i data-lucide='instagram' class='w-5 h-5'></i> Visita nuestro Instagram",
+                sect_nov_title: "Novedades y Promos",
+                sect_nov_desc: "Entérate de nuestros últimos proyectos, descuentos exclusivos y lo que pasa dentro del taller de Estudio Xidito.",
+                nov_1_tag: "OFERTA 🎂", nov_1_cat: "<i data-lucide='star' class='w-3 h-3 text-theme-dark'></i> Producto Estrella",
+                nov_1_title: "Topper-Manía: ¡Dale vida a tu pastel!",
+                nov_1_desc: "Crea un impacto visual único con nuestros Cake Toppers multicapa personalizados. Calidad premium y diseño de autor por solo $180 MXN. ¡Haz tu pedido hoy!",
+                nov_1_btn: "Quiero mi Topper <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                nov_2_tag: "SOLO 3 LUGARES 🚀", nov_2_cat: "<i data-lucide='smartphone' class='w-3 h-3 text-theme-dark'></i> Promoción Especial",
+                nov_2_title: "Menú Web Profesional: ¡Adiós al PDF pesado!",
+                nov_2_desc: "¡Ya no hagas que tus clientes sufran con un PDF que nunca carga! Buscamos 3 negocios para el catálogo 2026. Incluye: abre al segundo, diseño a tu estilo, pedidos por WA, reseñas en Google Maps y tu propia dirección web (estudio.xidito.com/tu-negocio). ¡Por solo $500 MXN!",
+                nov_2_btn: "Apartar mi lugar <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                nov_3_tag: "PROMO 🏷️", nov_3_cat: "<i data-lucide='tag' class='w-3 h-3 text-theme-dark'></i> Más Vendidos",
+                nov_3_title: "Sticker Slap: ¡Tu marca en todos lados!",
+                nov_3_desc: "Llévate 10 planillas (1/4 de carta) con tus diseños favoritos y corte a contorno por solo $250 MXN. ¡Calidad profesional lista para pegar!",
+                nov_3_btn: "Ver paquetes <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                sect_cont_title: "Conecta con nosotros",
+                cont_channels: "<i data-lucide='zap' class='text-theme-dark w-5 h-5'></i> Canales Directos",
+                cont_wa: "<i data-lucide='message-circle' class='w-5 h-5'></i> WhatsApp Directo",
+                cont_tel: "<i data-lucide='phone' class='w-5 h-5'></i> Tel: 442 126 01 33",
+                cont_hours: "<i data-lucide='clock' class='w-5 h-5'></i> Horarios del Taller",
+                cont_mf: "Lunes a Viernes", cont_we: "Fines de semana", cont_appt: "Previa Cita",
+                cont_loc: "<i data-lucide='map-pin' class='text-theme-dark w-5 h-5'></i> Ubicación Estratégica",
+                cont_loc_desc: "Atención presencial únicamente con previa cita.",
+                cont_loc_btn: "Abrir en Google Maps",
+                sect_faq_title: "Resolvemos tus dudas",
+                faq_1_q: "Diferencias entre rotulación de interiores y exteriores: ¿Por qué usar protección UV?",
+                faq_1_a: "La rotulación exterior se enfrenta al sol, la lluvia y el polvo. Por eso en Estudio Xidito utilizamos vinil impreso con protección UV de hasta 2 años. Al ser una capa extra sobre la impresión, no solo evita que tu marca se decolore, sino que también hace que el vinil sea 100% lavable y extra resistente para cualquier uso.",
+                faq_2_q: "Señalética y letreros: ¿Es solo para el sector industrial?",
+                faq_2_a: "¡Para nada! Aunque producimos señalética industrial bajo norma oficial (protección civil) para naves y fábricas, también diseñamos y fabricamos señalización estética y profesional para interiores, oficinas y negocios comerciales que buscan orientar a sus clientes con un gran diseño.",
+                faq_3_q: "Tendencias en cajas dulceras de lujo para eventos exclusivos",
+                faq_3_a: "Atrás quedaron las bolsitas de plástico. Para bautizos, XV años o bodas, diseñamos cajas dulceras de lujo con cortes precisos y materiales premium. Son un detalle único que tus invitados querrán conservar como recuerdo de tu fiesta chidita.",
+                foot_desc: "Dando vida a tus ideas con creatividad y diseño de alta precisión.",
+                foot_copy: "© 2026 Estudio Xidito",
+                wa_general: "Hola, te contacto desde tu página web.",
+                wa_service: "Hola, me interesa el servicio de ",
+                wa_topper: "Hola, quiero aprovechar la promo de Topper-Manía.",
+                wa_menu: "Hola, me interesa uno de los 3 lugares para la promo del Menú Web Profesional de $500.",
+                wa_sticker: "Hola, me interesan los paquetes de Sticker Slap.",
+                card_discover: "Descubrir más",
+                lang_select: "Seleccionar Idioma",
+                lang_translate: "Traducir a"
+            },
+            en: {
+                meta_title: "Estudio Xidito | Wrapping, Branding & Photography in Queretaro",
+                meta_desc: "Specialists in outdoor wrapping with UV protection, premium stickers, and luxury boxes. Product photography and industrial signage in Queretaro, Mexico.",
+                nav_home: "Home", nav_services: "Services", nav_process: "Process", nav_portfolio: "Portfolio", nav_news: "News", nav_contact: "Contact",
+                hero_agency: "Creative Agency",
+                hero_title: "We create what you imagine, with <span class='text-theme-dark'>digital precision</span> and artisan soul.",
+                hero_btn_start: "<i data-lucide='zap' class='w-5 h-5'></i> Start Project",
+                hero_btn_cat: "View Catalog",
+                hero_news_tag: "Latest News",
+                hero_news_txt: "🚀 Pro Web Menu for $500 MXN (Only 3 spots)",
+                sect_serv_title: "Industrial & Creative Solutions",
+                modal_cat: "Solutions Catalog",
+                modal_btn_back: "<i data-lucide='arrow-left' class='w-4 h-4'></i> Go Back",
+                modal_btn_quote: "<span class='flex items-center justify-center gap-3'>GET A QUOTE! <i data-lucide='arrow-right' class='w-5 h-5 group-hover:translate-x-2 transition-transform'></i></span>",
+                sect_proc_title: "Work Methodology",
+                sect_proc_desc: "Making your project a reality is very easy. We guide you step by step so the final result is flawless.",
+                proc_1_title: "<span class='text-theme-dark'>01.</span> Let's Talk",
+                proc_1_desc: "Send us a message telling us what you need. We listen to your ideas and send you a clear, hassle-free proposal.",
+                proc_2_title: "<span class='text-theme-dark'>02.</span> Hands on",
+                proc_2_desc: "Here enters the magic of the workshop. We start designing and assembling your project, taking care of every detail.",
+                proc_3_title: "<span class='text-theme-dark'>03.</span> Ready to shine",
+                proc_3_desc: "Your project comes to life! Whether it's your business's new image or your dream piñata, we deliver it ready to show off.",
+                proc_btn: "Quote my idea <i data-lucide='arrow-right' class='ml-2 w-5 h-5'></i>",
+                sect_port_title: "Our Work",
+                port_btn: "<i data-lucide='instagram' class='w-5 h-5'></i> Visit our Instagram",
+                sect_nov_title: "News and Promos",
+                sect_nov_desc: "Find out about our latest projects, exclusive discounts, and what goes on inside the Estudio Xidito workshop.",
+                nov_1_tag: "OFFER 🎂", nov_1_cat: "<i data-lucide='star' class='w-3 h-3 text-theme-dark'></i> Best Seller",
+                nov_1_title: "Topper-Mania: Bring your cake to life!",
+                nov_1_desc: "Create a unique visual impact with our custom multi-layer Cake Toppers. Premium quality and author design for only $180 MXN. Order today!",
+                nov_1_btn: "I want my Topper <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                nov_2_tag: "ONLY 3 SPOTS 🚀", nov_2_cat: "<i data-lucide='smartphone' class='w-3 h-3 text-theme-dark'></i> Special Promo",
+                nov_2_title: "Pro Web Menu: Goodbye heavy PDFs!",
+                nov_2_desc: "Stop making your customers suffer with slow PDFs! We're looking for 3 businesses for our 2026 catalog. Includes: instant loading, custom design, WhatsApp orders, Google Maps reviews, and your own URL. Only $500 MXN!",
+                nov_2_btn: "Save my spot <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                nov_3_tag: "PROMO 🏷️", nov_3_cat: "<i data-lucide='tag' class='w-3 h-3 text-theme-dark'></i> Top Rated",
+                nov_3_title: "Sticker Slap: Your brand everywhere!",
+                nov_3_desc: "Get 10 sticker sheets with your favorite designs and contour cutting for only $250 MXN. Professional quality ready to stick!",
+                nov_3_btn: "View packages <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                sect_cont_title: "Connect with us",
+                cont_channels: "<i data-lucide='zap' class='text-theme-dark w-5 h-5'></i> Direct Channels",
+                cont_wa: "<i data-lucide='message-circle' class='w-5 h-5'></i> Direct WhatsApp",
+                cont_tel: "<i data-lucide='phone' class='w-5 h-5'></i> Call: +52 442 126 01 33",
+                cont_hours: "<i data-lucide='clock' class='w-5 h-5'></i> Workshop Hours",
+                cont_mf: "Monday to Friday", cont_we: "Weekends", cont_appt: "By Appointment",
+                cont_loc: "<i data-lucide='map-pin' class='text-theme-dark w-5 h-5'></i> Strategic Location",
+                cont_loc_desc: "In-person assistance by appointment only.",
+                cont_loc_btn: "Open in Google Maps",
+                sect_faq_title: "We solve your doubts",
+                faq_1_q: "Differences between indoor and outdoor wrapping: Why use UV protection?",
+                faq_1_a: "Outdoor wrapping faces sun, rain, and dust. That's why at Estudio Xidito we use printed vinyl with UV protection lasting up to 2 years. Being an extra layer over the print, it not only prevents fading but also makes the vinyl 100% washable and extra resistant.",
+                faq_2_q: "Signage and signs: Is it only for the industrial sector?",
+                faq_2_a: "Not at all! Although we produce industrial signage under official safety regulations for warehouses and factories, we also design and manufacture aesthetic and professional signage for interiors, offices, and retail businesses.",
+                faq_3_q: "Trends in luxury candy boxes for exclusive events",
+                faq_3_a: "Plastic bags are a thing of the past. For baptisms, Sweet 16s, or weddings, we design luxury boxes with precise cuts and premium materials. They are a unique detail your guests will want to keep.",
+                foot_desc: "Bringing your ideas to life with creativity and high-precision design.",
+                foot_copy: "© 2026 Estudio Xidito",
+                wa_general: "Hi, I'm contacting you from your website.",
+                wa_service: "Hi, I'm interested in the service of ",
+                wa_topper: "Hi, I want to take advantage of the Topper-Mania promo.",
+                wa_menu: "Hi, I'm interested in one of the 3 spots for the $500 Pro Web Menu promo.",
+                wa_sticker: "Hi, I'm interested in the Sticker Slap packages.",
+                card_discover: "Discover more",
+                lang_select: "Select Language",
+                lang_translate: "Translate to"
+            },
+            zh: {
+                meta_title: "Estudio Xidito | 克雷塔罗的品牌标识、招牌和摄影",
+                meta_desc: "专营防紫外线户外招牌、优质贴纸和豪华礼盒。提供克雷塔罗地区的商业摄影与工业标识服务。",
+                nav_home: "首页", nav_services: "服务", nav_process: "流程", nav_portfolio: "作品集", nav_news: "最新动态", nav_contact: "联系我们",
+                hero_agency: "创意机构",
+                hero_title: "我们以<span class='text-theme-dark'>数字精度</span>和工匠精神，创造您所想象的一切。",
+                hero_btn_start: "<i data-lucide='zap' class='w-5 h-5'></i> 启动项目",
+                hero_btn_cat: "查看服务目录",
+                hero_news_tag: "最新动态",
+                hero_news_txt: "🚀 专业网页菜单仅需 $500 MXN（仅限3个名额）",
+                sect_serv_title: "工业与创意解决方案",
+                modal_cat: "解决方案目录",
+                modal_btn_back: "<i data-lucide='arrow-left' class='w-4 h-4'></i> 返回",
+                modal_btn_quote: "<span class='flex items-center justify-center gap-3'>获取报价！ <i data-lucide='arrow-right' class='w-5 h-5 group-hover:translate-x-2 transition-transform'></i></span>",
+                sect_proc_title: "工作方法",
+                sect_proc_desc: "让您的项目成为现实非常简单。我们将步步为您提供指导，确保最终结果完美无瑕。",
+                proc_1_title: "<span class='text-theme-dark'>01.</span> 让我们聊聊",
+                proc_1_desc: "给我们发条信息，告诉我们您的需求。我们会倾听您的想法，并为您提供清晰的方案。",
+                proc_2_title: "<span class='text-theme-dark'>02.</span> 开始动手",
+                proc_2_desc: "这里是工作室施展魔法的地方。我们开始设计并组装您的项目，注重每一个细节。",
+                proc_3_title: "<span class='text-theme-dark'>03.</span> 准备闪耀",
+                proc_3_desc: "您的项目焕发生机！无论是企业新形象还是梦幻派对用品，我们都会完美交付。",
+                proc_btn: "为我的想法报价 <i data-lucide='arrow-right' class='ml-2 w-5 h-5'></i>",
+                sect_port_title: "我们的作品",
+                port_btn: "<i data-lucide='instagram' class='w-5 h-5'></i> 访问我们的 Instagram",
+                sect_nov_title: "最新动态与促销",
+                sect_nov_desc: "了解我们的最新项目、独家折扣以及 Estudio Xidito 工作室的日常。",
+                nov_1_tag: "优惠 🎂", nov_1_cat: "<i data-lucide='star' class='w-3 h-3 text-theme-dark'></i> 明星产品",
+                nov_1_title: "Topper-Mania：让您的蛋糕焕发生机！",
+                nov_1_desc: "使用我们定制的多层蛋糕插牌，创造独特的视觉冲击。优质原创设计仅需 $180 MXN。今天就下单吧！",
+                nov_1_btn: "我想要插牌 <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                nov_2_tag: "仅限3个名额 🚀", nov_2_cat: "<i data-lucide='smartphone' class='w-3 h-3 text-theme-dark'></i> 特别促销",
+                nov_2_title: "专业网页菜单：告别笨重的 PDF！",
+                nov_2_desc: "别再让顾客忍受加载缓慢的PDF了！我们正在为2026年的目录寻找3家企业。包含：秒开加载、定制设计、WhatsApp订单、谷歌地图评论及您的专属网址。仅需 $500 MXN！",
+                nov_2_btn: "预留名额 <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                nov_3_tag: "促销 🏷️", nov_3_cat: "<i data-lucide='tag' class='w-3 h-3 text-theme-dark'></i> 最畅销",
+                nov_3_title: "Sticker Slap：让品牌无处不在！",
+                nov_3_desc: "仅需 $250 MXN，即可获得 10 张包含您最爱设计且沿边切割的贴纸。专业品质，随时可贴！",
+                nov_3_btn: "查看套餐 <i data-lucide='arrow-right' class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform'></i>",
+                sect_cont_title: "联系我们",
+                cont_channels: "<i data-lucide='zap' class='text-theme-dark w-5 h-5'></i> 直接联系渠道",
+                cont_wa: "<i data-lucide='message-circle' class='w-5 h-5'></i> 直接 WhatsApp 联系",
+                cont_tel: "<i data-lucide='phone' class='w-5 h-5'></i> 电话: 442 126 01 33",
+                cont_hours: "<i data-lucide='clock' class='w-5 h-5'></i> 工作室营业时间",
+                cont_mf: "周一至周五", cont_we: "周末", cont_appt: "仅限预约",
+                cont_loc: "<i data-lucide='map-pin' class='text-theme-dark w-5 h-5'></i> 战略位置",
+                cont_loc_desc: "仅提供预约面谈服务。",
+                cont_loc_btn: "在 Google 地图上打开",
+                sect_faq_title: "我们解答您的疑问",
+                faq_1_q: "室内和室外招牌的区别：为什么要用防紫外线保护？",
+                faq_1_a: "室外招牌会面临日晒、雨淋和灰尘。因此我们在 Estudio Xidito 使用带有长达 2 年防紫外线保护的打印贴膜。作为打印层上的额外保护，它不仅能防止品牌褪色，还能使贴膜 100% 可水洗且更加耐用。",
+                faq_2_q: "标识和标志：仅仅适用于工业领域吗？",
+                faq_2_a: "绝不是！虽然我们根据官方规范为仓库和工厂生产工业安全标识，但我们也为追求优秀设计的室内空间、办公室和商业店铺设计及制作美观专业的标识。",
+                faq_3_q: "高端活动中豪华礼盒的趋势",
+                faq_3_a: "塑料袋已成为过去。对于洗礼、15 岁成人礼或婚礼，我们使用精确的切割和优质材料设计豪华礼盒。这是您的客人会希望保留的独特细节。",
+                foot_desc: "通过创意和高精度设计，将您的想法化为现实。",
+                foot_copy: "© 2026 Estudio Xidito",
+                wa_general: "你好，我从您的网站联系您。",
+                wa_service: "你好，我对这项服务感兴趣：",
+                wa_topper: "你好，我想参加 Topper-Mania 的优惠活动。",
+                wa_menu: "你好，我对 $500 的专业网页菜单促销活动的3个名额之一感兴趣。",
+                wa_sticker: "你好，我对 Sticker Slap 套餐感兴趣。",
+                card_discover: "发现更多",
+                lang_select: "选择语言",
+                lang_translate: "切换语言"
+            }
+        };
+
+        // Arreglos dinámicos traducibles (Máquina de escribir)
+        const typewriterData = {
+            es: ["Branding", "Impresión de Gran Formato", "Fotografía Profesional", "Diseño Web", "Decoración para Eventos"],
+            en: ["Branding", "Large Format Printing", "Professional Photography", "Web Design", "Event Decoration"],
+            zh: ["品牌设计", "大幅面打印", "专业摄影", "网页设计", "活动布置"]
+        };
+
+        // Arreglos dinámicos traducibles (Servicios)
+        const servicesData = {
+            es: [
+                { id: 'formato', label: 'Rotulación y Exteriores', icon: 'layers', desc: 'Rotulación de fachadas y exteriores en Querétaro con alta durabilidad.', details: ['Vinil impreso con protección UV lavable', 'Rotulación vehicular comercial', 'Lonas y Microperforados', 'Corte de vinil de alta precisión'] },
+                { id: 'foto', label: 'Fotografía y Escenografía', icon: 'camera', desc: 'Fotografía de producto y sets fotográficos personalizados.', details: ['Sesiones en Set', 'Fotografía para E-commerce', 'Escenarios personalizados', 'Retoque industrial y comercial'] },
+                { id: 'negocio', label: 'Identidad y Señalética', icon: 'shopping-bag', desc: 'Diseño de logotipos y señalética para negocios, oficinas e industria.', details: ['Diseño de Logotipos Profesionales', 'Señalética comercial e interior', 'Señalética industrial (Normativa)', 'Identidad Corporativa', 'Toldos y Estructuras publicitarias'] },
+                { id: 'artesania', label: 'Eventos de Lujo y Artesanías', icon: 'palette', desc: 'Detalles únicos, stickers premium y cajas de lujo.', details: ['Cajas dulceras de lujo para eventos', 'Stickers premium con corte a contorno', 'Cake toppers multicapa', 'Piñatas de autor'] },
+                { id: 'fiestas', label: 'Decoración Temática', icon: 'party-popper', desc: 'Escenografías inolvidables para eventos exclusivos.', details: ['Decoración temática', 'Estructuras de coroplast', 'Mamparas personalizadas', 'Arcos de bienvenida'] },
+                { id: 'digital', label: 'Soluciones Digitales', icon: 'smartphone', desc: 'Presencia, webs e invitaciones modernas.', details: ['Websites y Páginas Web', 'Producción de Podcast', 'Invitaciones digitales', 'Menús QR para restaurantes', 'Tarjetas digitales', 'Social Media Branding'] }
+            ],
+            en: [
+                { id: 'formato', label: 'Exterior Wrapping', icon: 'layers', desc: 'Durable facade and outdoor wrapping in Queretaro.', details: ['Washable UV-protected printed vinyl', 'Commercial vehicle wrapping', 'Banners and Micro-perforated', 'High-precision vinyl cutting'] },
+                { id: 'foto', label: 'Photography & Sets', icon: 'camera', desc: 'Product photography and custom photo sets.', details: ['In-Studio Sessions', 'E-commerce Photography', 'Custom Scenarios', 'Industrial and Commercial Retouching'] },
+                { id: 'negocio', label: 'Identity & Signage', icon: 'shopping-bag', desc: 'Logo design and signage for businesses, offices, and industries.', details: ['Professional Logo Design', 'Commercial and Interior Signage', 'Industrial Signage (Regulations)', 'Corporate Identity', 'Awnings and Advertising Structures'] },
+                { id: 'artesania', label: 'Luxury Events & Crafts', icon: 'palette', desc: 'Unique details, premium stickers, and luxury boxes.', details: ['Luxury candy boxes for events', 'Premium contour-cut stickers', 'Multi-layer cake toppers', 'Author Piñatas'] },
+                { id: 'fiestas', label: 'Themed Decoration', icon: 'party-popper', desc: 'Unforgettable scenographies for exclusive events.', details: ['Themed decoration', 'Coroplast structures', 'Custom backdrops', 'Welcome arches'] },
+                { id: 'digital', label: 'Digital Solutions', icon: 'smartphone', desc: 'Online presence, modern websites, and digital invites.', details: ['Websites & Web Pages', 'Podcast Production', 'Digital invitations', 'QR Menus for restaurants', 'Digital Cards', 'Social Media Branding'] }
+            ],
+            zh: [
+                { id: 'formato', label: '户外招牌与车辆贴膜', icon: 'layers', desc: '克雷塔罗耐用的外墙和户外招牌。', details: ['可水洗防紫外线打印贴膜', '商业车辆贴膜', '横幅与微孔贴膜', '高精度切割贴膜'] },
+                { id: 'foto', label: '摄影与布景', icon: 'camera', desc: '产品摄影及定制摄影布景。', details: ['影棚拍摄', '电商摄影', '定制场景', '工业与商业修图'] },
+                { id: 'negocio', label: '品牌形象与标识', icon: 'shopping-bag', desc: '为企业、办公室和工业提供徽标设计和标识。', details: ['专业徽标设计', '商业及室内标识', '工业安全标识', '企业视觉识别', '遮阳篷及广告结构'] },
+                { id: 'artesania', label: '豪华派对与手工艺品', icon: 'palette', desc: '独特的细节、优质贴纸和豪华礼盒。', details: ['活动豪华糖果盒', '优质沿边切割贴纸', '多层蛋糕插牌', '原创皮纳塔 (Piñatas)'] },
+                { id: 'fiestas', label: '主题装饰', icon: 'party-popper', desc: '为高端活动打造难忘的场景布置。', details: ['主题装饰', '瓦楞塑料结构', '定制背景板', '迎宾拱门'] },
+                { id: 'digital', label: '数字解决方案', icon: 'smartphone', desc: '在线形象、现代网站与数字邀请函。', details: ['网站建设', '播客制作', '数字邀请函', '餐厅二维码菜单', '数字名片', '社交媒体品牌推广'] }
+            ]
+        };
+
+        // Títulos de Portafolio
+        const portTitles = {
+            es: ['Rotulación de Fachadas', 'Rotulación Vehicular', 'Letreros LED', 'Piñatas Personalizadas', 'Decoración de Eventos', 'Invitaciones Personalizadas', 'Etiquetas y Stickers', 'Cake Toppers', 'Branding', 'Vinil de Corte', 'Instalación Artesanal', 'Estamos Trabajando'],
+            en: ['Facade Wrapping', 'Vehicle Wrapping', 'LED Signs', 'Custom Piñatas', 'Event Decoration', 'Custom Invitations', 'Labels & Stickers', 'Cake Toppers', 'Branding', 'Vinyl Cutting', 'Artisan Installation', 'Work in Progress'],
+            zh: ['外墙招牌', '车辆贴膜', 'LED 招牌', '定制皮纳塔', '活动装饰', '定制邀请函', '标签与贴纸', '蛋糕插牌', '品牌设计', '贴膜切割', '手工安装', '正在进行中']
+        };
+
+        // Estado Global del Idioma
+        let currentLang = localStorage.getItem('xidito_lang') || 'es';
+
+        // 3. FUNCIÓN MAESTRA DE CAMBIO DE IDIOMA Y TEMA
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('xidito_lang', lang);
+            
+            const htmlRoot = document.getElementById('html-root');
+            htmlRoot.lang = lang;
+            htmlRoot.className = lang === 'es' ? 'selection-bg font-sans' : `selection-bg font-sans theme-${lang}`;
+            
+            document.getElementById('desktop-lang-label').innerText = lang.toUpperCase();
+
+            // Traducir todos los elementos con data-i18n
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
                 }
             });
 
-            // Tracking de sección
-            if(typeof gtag !== 'undefined') {
-                gtag('event', 'vista_seccion', { 'event_label': sectionId });
+            // Traducir atributos SEO y enlaces de WhatsApp
+            document.querySelector('title').innerText = i18n[lang]['meta_title'];
+            document.querySelector('meta[name="description"]').setAttribute('content', i18n[lang]['meta_desc']);
+            
+            document.getElementById('btn-wa-direct').href = `https://wa.me/524421260133?text=${encodeURIComponent(i18n[lang]['wa_general'])}`;
+            
+            // Ocultar/Mostrar elementos exclusivos de español (Novedades y promo)
+            const esOnlyElements = document.querySelectorAll('.lang-es-only');
+            if(lang === 'es') {
+                esOnlyElements.forEach(el => el.style.display = '');
+            } else {
+                esOnlyElements.forEach(el => el.style.display = 'none');
+                // Si está en la sección de novedades y cambia de idioma, mandarlo a inicio
+                const novSection = document.getElementById('sec-novedades');
+                if(novSection && !novSection.classList.contains('hidden')) {
+                    navigate('inicio');
+                }
             }
+
+            // Renderizar datos dinámicos (Typewriter y Grid)
+            resetTypewriter();
+            renderServicesGrid();
+            renderPortfolios();
+
+            setTimeout(() => lucide.createIcons(), 50);
+
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(!mobileMenu.classList.contains('hidden')) toggleMenu();
+        }
+
+        function openPromoWhatsApp(promoType) {
+            let msg = "";
+            if(promoType === 'topper') msg = i18n[currentLang]['wa_topper'];
+            if(promoType === 'menu') msg = i18n[currentLang]['wa_menu'];
+            if(promoType === 'sticker') msg = i18n[currentLang]['wa_sticker'];
+            window.open(`https://wa.me/524421260133?text=${encodeURIComponent(msg)}`, '_blank');
+            sendEvent('conversion_whatsapp', { origen: 'promo_' + promoType }); // Evento GA4
+        }
+
+        // 4. RE-RENDER DE SERVICIOS
+        function renderServicesGrid() {
+            const grid = document.getElementById('services-grid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            
+            servicesData[currentLang].forEach((s) => {
+                const delay = (Math.random() * 2).toFixed(2);
+                grid.innerHTML += `
+                    <div onclick="openModal('${s.id}')" class="group cursor-pointer bg-white border border-theme-base/5 rounded-3xl p-8 transition-all duration-500 transform hover:-translate-y-2 shadow-zen hover:shadow-zen-hover card-float relative overflow-hidden" style="animation-delay: ${delay}s">
+                        <div class="w-16 h-16 bg-cloud rounded-2xl flex items-center justify-center mb-6 group-hover:bg-theme-accent text-theme-base transition-all duration-500 group-hover:scale-110">
+                            <i data-lucide="${s.icon}"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-theme-base mb-3">${s.label}</h3>
+                        <p class="text-theme-base/70 text-sm mb-6 leading-relaxed">${s.desc}</p>
+                        <span class="text-xs font-bold uppercase tracking-widest text-theme-dark group-hover:text-theme-base transition-colors flex items-center">
+                            ${i18n[currentLang]['card_discover']} <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </span>
+                    </div>
+                `;
+            });
+        }
+
+        function openModal(id) {
+            const service = servicesData[currentLang].find(s => s.id === id);
+            if(!service) return;
+
+            document.getElementById('modal-title').innerText = service.label;
+            document.getElementById('modal-icon-container').innerHTML = `<i data-lucide="${service.icon}" style="width: 32px; height: 32px;"></i>`;
+            
+            const detailsHtml = service.details.map((d, index) => `
+                <div class="animate-stagger-item flex items-center gap-4 p-4 bg-cloud rounded-2xl border border-theme-base/5 hover:border-theme-accent hover:-translate-y-1 transition-all duration-300 group" style="animation-delay: ${index * 100}ms">
+                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 group-hover:bg-theme-accent transition-colors">
+                        <i data-lucide="check" class="text-theme-base w-4 h-4"></i>
+                    </div>
+                    <span class="text-sm font-medium text-theme-base">${d}</span>
+                </div>
+            `).join('');
+            document.getElementById('modal-details').innerHTML = detailsHtml;
+            
+            const msg = i18n[currentLang]['wa_service'] + service.label;
+            
+            const btnCta = document.getElementById('modal-cta');
+            btnCta.href = `https://wa.me/524421260133?text=${encodeURIComponent(msg)}`;
+            
+            // Re-asignar evento para asegurar que se registre correctamente la cotización del servicio
+            btnCta.onclick = () => { sendEvent('conversion_whatsapp', { origen: 'cotizar_' + id }); };
+
+            const modal = document.getElementById('service-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+            
+            // Enviar evento de vista de servicio
+            sendEvent('vista_servicio', { nombre_servicio: service.label });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('service-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 5. RE-RENDER DE PORTAFOLIO
+        function renderPortfolios() {
+            const baseImages = ['portafolio1.jpg', 'portafolio2.jpg', 'portafolio3.jpg', 'portafolio4.jpg', 'portafolio5.jpg', 'portafolio6.jpg', 'portafolio7.jpg', 'portafolio8.jpg', 'portafolio9.jpg', 'portafolio10.jpg', 'portafolio11.jpg', 'portafolio12.jpg'];
+            
+            const mappedData = baseImages.map((img, i) => ({ img: img, title: portTitles[currentLang][i] }));
+
+            renderMarquee('marquee-row-1', mappedData.slice(0,6));
+            renderMarquee('marquee-row-1-clone', mappedData.slice(0,6));
+            renderMarquee('marquee-row-2', mappedData.slice(6,12));
+            renderMarquee('marquee-row-2-clone', mappedData.slice(6,12));
+            
+            marqueeItems = document.querySelectorAll('.marquee-item');
+        }
+
+        function renderMarquee(containerId, items) {
+            const container = document.getElementById(containerId);
+            if(!container) return;
+            const html = items.map(item => `
+                <div class="marquee-item w-[300px] md:w-[400px] h-[200px] md:h-[280px] flex-shrink-0 rounded-[2rem] border-4 border-white bg-white shadow-zen overflow-hidden group relative cursor-pointer">
+                    <img src="${item.img}" class="w-full h-full object-cover" alt="${item.title}" loading="lazy" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-theme-base/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="marquee-text-bg absolute bottom-6 left-6 right-6 border-l-4 border-transparent bg-white/95 backdrop-blur-sm p-3 rounded-r-xl transition-colors duration-300 shadow-sm">
+                        <span class="text-theme-base font-bold text-sm md:text-base block truncate transition-colors duration-300">
+                            ${item.title}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+            container.innerHTML = html;
+        }
+
+        let marqueeItems = [];
+        function startMarqueeAnimation() {
+            animateCenterJump();
+        }
+        function animateCenterJump() {
+            const screenCenter = window.innerWidth / 2;
+            marqueeItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.left + rect.width / 2;
+                if (Math.abs(screenCenter - itemCenter) < (rect.width / 2.5)) {
+                    item.classList.add('is-center');
+                } else {
+                    item.classList.remove('is-center');
+                }
+            });
+            requestAnimationFrame(animateCenterJump);
+        }
+
+        // 6. MÁQUINA DE ESCRIBIR MULTILINGÜE
+        let typeEl = document.getElementById('typewriter');
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeTimeout;
+
+        function resetTypewriter() {
+            clearTimeout(typeTimeout);
+            textIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+            if(typeEl) typeEl.textContent = '';
+            type();
+        }
+
+        function type() {
+            if(!typeEl) return;
+            const textsArray = typewriterData[currentLang];
+            const current = textsArray[textIndex];
+            
+            if (isDeleting) charIndex--;
+            else charIndex++;
+            
+            typeEl.textContent = current.substring(0, charIndex);
+            
+            let speed = isDeleting ? 40 : 80;
+            if (!isDeleting && charIndex === current.length) {
+                speed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textsArray.length;
+                speed = 500;
+            }
+            typeTimeout = setTimeout(type, speed);
+        }
+
+        // Inicialización y Utilidades Generales
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) reveals[i].classList.add("active");
+            }
+        }
+        // Se adjunta al evento scroll global creado en la sección de métricas (línea 403)
+
+        function navigate(sectionId) {
+            document.querySelectorAll('.section-container').forEach(el => {
+                el.classList.remove('block');
+                el.classList.add('hidden');
+            });
+            document.getElementById('sec-' + sectionId).classList.remove('hidden');
+            document.getElementById('sec-' + sectionId).classList.add('block');
+
+            document.querySelectorAll('.nav-link').forEach(el => {
+                if(el.dataset.target === sectionId) {
+                    el.classList.remove('text-theme-base/60');
+                    el.classList.add('text-theme-dark');
+                } else {
+                    el.classList.add('text-theme-base/60');
+                    el.classList.remove('text-theme-dark');
+                }
+            });
+
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(!mobileMenu.classList.contains('hidden')) toggleMenu();
+            
+            window.scrollTo(0,0);
+            setTimeout(reveal, 100); 
+            
+            // Disparar Métrica 1 (Vistas de Sección)
+            sendEvent('vista_seccion', { nombre_seccion: sectionId });
         }
 
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('open');
+            const icon = document.getElementById('menu-icon');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
         }
 
-        // --- 2. FORMULARIO ---
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const feedback = document.getElementById('feedback');
-            feedback.classList.remove('hidden');
-
-            const nombre = document.getElementById('nombre').value;
-            const tel = document.getElementById('telefono').value;
-            const msg = document.getElementById('mensaje').value;
-            
-            const email = "caosdivergente@gmail.com";
-            const subject = "INTERÉS WEB URGENTE - Gente que Suma";
-            const bodyText = `Hola, mi nombre es ${nombre}. Mi teléfono es: ${tel}. Necesito el siguiente apoyo: ${msg}`;
-
-            // Evento GA
-            if(typeof gtag !== 'undefined') {
-                gtag('event', 'envio_formulario', { 'event_category': 'Conversion' });
-            }
-
-            setTimeout(() => {
-                window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-            }, 1000);
+        // --- ARRANQUE COMPLETO ---
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            startMarqueeAnimation();
+            reveal();
+            // Aseguramos que se escuche el scroll para los efectos reveal independientemente de las métricas
+            window.addEventListener("scroll", reveal);
         });
 
-        // --- 3. GOOGLE ANALYTICS Y MÉTRICAS ---
-        document.addEventListener('DOMContentLoaded', function() {
-            // Engagement 10s
-            setTimeout(function() {
-                if(typeof gtag !== 'undefined') gtag('event', 'engaged_10s');
-            }, 10000);
-
-            // Scroll Depth
-            let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
-            window.addEventListener('scroll', function() {
-                let pct = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-                [25, 50, 75, 100].forEach(mark => {
-                    if(pct >= mark && !scrollMarks[mark]) {
-                        scrollMarks[mark] = true;
-                        if(typeof gtag !== 'undefined') gtag('event', 'scroll_depth', { 'value': mark });
-                    }
-                });
-            });
-
-            // WhatsApp y Llamada
-            document.getElementById('btn-whatsapp-gqs')?.addEventListener('click', () => {
-                if(typeof gtag !== 'undefined') gtag('event', 'conversion_whatsapp');
-            });
-            document.getElementById('btn-call-gqs')?.addEventListener('click', () => {
-                if(typeof gtag !== 'undefined') gtag('event', 'click_to_call');
-            });
-        });
     </script>
 </body>
 </html>
